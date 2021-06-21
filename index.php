@@ -111,7 +111,10 @@ $diasdasemana = array (1 => "Segunda-Feira",2 => "Terça-Feira",3 => "Quarta-Fei
 			<div style="font-family: Arial, Helvetica, sans-serif;">Cuiabá-MT, <? print "$dia de $nomemes de $ano"; ?></div>
           </div>
 		  <a href="callto:#" class="fa-phone">(65) 3321 - 7051</a>
-          <p>Um de nossos representantes terá prazer em contatá-lo em até 24 horas. </p>
+          <p>Um de nossos representantes terá prazer em contatá-lo em até 24 horas. 
+		  <br>
+		  
+		  </p>
         </div>
         <div id="stuck_container" class="stuck_container">
           <div class="container">
