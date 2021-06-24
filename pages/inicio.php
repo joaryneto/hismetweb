@@ -18,7 +18,7 @@
                 </div>
               </div>
             </div>-->
-			
+			 
 			<?
 			
 			$SQL = "SELECT * FROM web_banner where status=1;";
