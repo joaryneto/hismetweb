@@ -18,7 +18,15 @@
                 </div>
               </div>
             </div>-->
-            <div data-src="images/slide/slide_01.png">
+			
+			<?
+			
+			$SQL = "SELECT * FROM web_banner where status=1;";
+			$RES = mysqli_query($db,$SQL);
+			while($row = mysqli_fetch_array($RES))
+			{
+			?>
+            <div data-src="<? echo $_SESSION['template'];?>imagess/slide/slide_01.png">
               <div class="camera_caption fadeIn">
                 <div class="container">
                   <div class="row">
@@ -27,33 +35,7 @@
                 </div>
               </div>
             </div>
-            <div data-src="images/slide/slide_02.png">
-              <div class="camera_caption fadeIn">
-                <div class="container">
-                  <div class="row">
-                    <div class="preffix_6 grid_6"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-src="images/slide/slide_03.png">
-              <div class="camera_caption fadeIn">
-                <div class="container">
-                  <div class="row">
-                    <div class="preffix_6 grid_6"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-			<div data-src="images/slide/slide_04.png">
-              <div class="camera_caption fadeIn">
-                <div class="container">
-                  <div class="row">
-                    <div class="preffix_6 grid_6"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+			<? } ?>
           </div>
         </section>
         <section>
