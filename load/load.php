@@ -78,15 +78,15 @@ $string = '{
   "name": "'.$_SESSION['nomesoft'].'",
   "short_name": "'.$_SESSION['nomesoft'].'",
   "icons": [{
-    "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-128x128.png",
+      "src": "/'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-128x128.png",
       "sizes": "128x128",
       "type": "image/png"
     }, {
-      "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-144x144.png",
+      "src": "/'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-144x144.png",
       "sizes": "144x144",
       "type": "image/png"
     }, {
-      "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-152x152.png",
+      "src": "/'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-152x152.png",
       "sizes": "152x152",
       "type": "image/png"
     }, {
@@ -95,17 +95,17 @@ $string = '{
       "type": "image/png",
 	  "purpose": "maskable"
     }, {
-      "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-256x256.png",
+      "src": "/'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-256x256.png",
       "sizes": "256x256",
       "type": "image/png",
 	  "purpose": "maskable"
     }, {
-      "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-512x512.png",
+      "src": "/'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
 	  "purpose": "maskable"
     }, {
-      "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-32x32.png",
+      "src": "/'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-32x32.png",
       "sizes": "32x32",
       "type": "image/png",
 	  "purpose": "maskable"
