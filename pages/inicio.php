@@ -1,4 +1,4 @@
-<section class="camera_container">
+          <section class="camera_container">
           <div id="camera" class="camera_wrap">
 		    <!--<div data-src="images/slide/slide_05.png">
               <div class="camera_caption fadeIn">
