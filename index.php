@@ -31,28 +31,13 @@ require_once("./load/load.php");
 		{
 	       include ('template/layout/site/login.php');  
 		}
-		else if(@$_GET['sl'] == "sistema")
+		else if(@$_GET['h'] == "sistema")
 		{
 	       include ('template/layout/site/sistema.php');  
 		}
 		else
 		{
 		   include ('template/layout/site/index.php');
-		}
-	}
-	else if($_SESSION['tipo'] == 3)
-	{
-		if(@$_GET['sl'] == "login")
-		{
-	       include ('template/layout/spa/login.php');  
-		}
-		else if(@$_GET['sl'] == "sistema")
-		{
-	       include ('template/layout/spa/sistema.php');  
-		}
-		else
-		{
-		   include ('template/layout/spa/index.php');
 		}
 	}
 }
