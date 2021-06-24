@@ -10,7 +10,7 @@ if(@$_SERVER['SERVER_NAME'] == "sistema.site" or @$_SERVER['SERVER_NAME'] == "ap
 	$_SESSION['img'] = "sistema";
 	$_SESSION['tema'] = "blue";
 	$_SESSION['pg'] = "pgsis";
-	$_SESSION['template'] = "/template/layout/medicina/";
+	$_SESSION['template'] = "template/layout/medicina/";
 	//print('<script> localStorage.setItem("sistema", "'.$sistema.'"); </script>');
 }
 else if(@$_SERVER['SERVER_NAME'] == "sistema.web" or @$_SERVER['SERVER_NAME'] == "hismet.com.br")
@@ -23,7 +23,7 @@ else if(@$_SERVER['SERVER_NAME'] == "sistema.web" or @$_SERVER['SERVER_NAME'] ==
 	$_SESSION['tema'] = "blue";
 	$_SESSION['img'] = "web";
 	$_SESSION['pg'] = "pages";
-	$_SESSION['template'] = "/template/layout/site/";
+	$_SESSION['template'] = "template/layout/site/";
 	
 	//print('<script> localStorage.setItem("sistema", "'.$sistema.'"); </script>');
 }
