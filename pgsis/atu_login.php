@@ -50,7 +50,7 @@ if($x == 1)
             showConfirmButton: false 
         });</script>';
 
-	print "<script> window.location='/?sl=sistema'; </script>"; 
+	print "<script> window.location='/?h=inicio'; </script>"; 
 }
 else
 {

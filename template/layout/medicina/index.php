@@ -18,7 +18,7 @@
             </div>
             <div class="col-12 align-self-center text-center">
                 <div class="loader-logo">
-                    <div class="logo">1<span>UX</span><span>UI</span>
+                    <div class="logo"><span></span><span></span>
                         <div class="loader-roller">
                             <div></div>
                             <div></div>
@@ -30,11 +30,10 @@
                             <div></div>
                         </div>
                     </div>
-                    <h4 class="logo-text"><span>OneUIUX</span><small>Mobile HTML</small></h4>
                 </div>
             </div>
             <div class="col-12 align-self-end text-center">
-                <p class="my-5">Please wait<br><small class="text-mute">A world of great designs is loading...</small></p>
+                <p class="my-5">Por favor, aguarde<br><small class="text-mute">Um mundo está carregando ...</small></p>
             </div>
         </div>
     </div>
@@ -49,9 +48,9 @@
                 </button>
             </div>
             <div>
-                <a class="navbar-brand" href="index.html">
-                    <div class="logo">1<span>UX</span><span>UI</span></div>
-                    <h4 class="logo-text"><span>OneUIUX</span><small>Mobile HTML</small></h4>
+                <a class="navbar-brand" href="/?h=inicio">
+                    <div class="logo"><span></span><span></span></div>
+                    <h4 class="logo-text"><img style="height:50px" src="<? echo $_SESSION['template'];?>images/logo.png" alt="logo"><span></span><small></small></h4>
                 </a>
             </div>
             <div>
@@ -63,32 +62,7 @@
     <!-- Fixed navbar ends -->
 
     <!-- sidebar -->
-    <div class="sidebar">
-        <div class="row no-gutters">
-            <div class="col-auto align-self-center">
-                <figure class="avatar avatar-50">
-                    <img src="assets/img/user1.png" alt="">
-                </figure>
-            </div>
-            <div class="col pl-3 align-self-center">
-                <p class="my-0">Maxartkiller</p>
-                <p class="text-mute my-0 small">United States</p>
-            </div>
-            <div class="col-auto align-self-center">
-                <a href="login.html" class="btn btn-link text-white p-2"><i class="material-icons">power_settings_new</i></a>
-            </div>
-        </div>
-        <div class="list-group main-menu my-4">
-            <a href="index.html" class="list-group-item list-group-item-action active"><i class="material-icons">home</i>Home</a>
-            <a href="doctors.html" class="list-group-item list-group-item-action"><i class="material-icons">medical_services</i>Doctors</a>
-            <a href="products.html" class="list-group-item list-group-item-action"><i class="material-icons">shopping_cart</i>Shopping</a>
-            <a href="orders.html" class="list-group-item list-group-item-action"><i class="material-icons">shopping_bag</i>Orders</a>
-            <a href="notification.html" class="list-group-item list-group-item-action"><i class="material-icons">notifications</i>Notification <span class="badge badge-dark text-white">2</span></a>
-            <a href="elements.html" class="list-group-item list-group-item-action"><i class="material-icons">list_alt</i>Pages & Elements</a>
-            <a href="setting.html" class="list-group-item list-group-item-action"><i class="material-icons">account_circle</i>Setting</a>
-            <a href="aboutus.html" class="list-group-item list-group-item-action"><i class="material-icons">business</i>About</a>
-        </div>
-    </div>
+    <? include(''.$_SESSION['template'].'/menu.php');?>
     <!-- sidebar ends -->
 
     <!-- Begin page content -->

@@ -1,5 +1,9 @@
 <?
 
+ob_start();
+
+session_start();
+
 require_once("./load/load.php");
 
     if($_SESSION['tipo'] == 1)
@@ -8,7 +12,7 @@ require_once("./load/load.php");
 		{
 	       include ('template/layout/medicina/login.php');  
 		}
-		else if(@$_GET['h'] == "sistema")
+		else if(@$_GET['h'] == "inicio")
 		{
 	       include ('template/layout/medicina/index.php');  
 		}
