@@ -144,7 +144,7 @@ btnSave.addEventListener('click', function() {
     // CODELAB: Register service worker.
 	if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('<? echo $_SESSION['template'];?>service-worker.js')
+    navigator.serviceWorker.register('/service-worker.js')
         .then((reg) => {
           console.log('Service worker registered.', reg);
         });
