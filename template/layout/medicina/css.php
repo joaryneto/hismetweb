@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta name="author" content="EC Tecnologia">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<? echo $_SESSION['template'];?>assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<? echo $_SESSION['template'];?>images/favicon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1"/>
 	<title>Hismet - Higiene - Segurança e Medicina do Trabalho</title>
 	<meta name="codelab" content="your-first-pwa-v3">
