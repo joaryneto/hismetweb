@@ -10,7 +10,7 @@ if(@$_SERVER['SERVER_NAME'] == "sistema.site" or @$_SERVER['SERVER_NAME'] == "ap
 	$_SESSION['img'] = "sistema";
 	$_SESSION['tema'] = "blue";
 	$_SESSION['pg'] = "pgsis";
-	$_SESSION['template'] = "template/layout/medicina/";
+	$_SESSION['template'] = "/template/layout/medicina/";
 	//print('<script> localStorage.setItem("sistema", "'.$sistema.'"); </script>');
 }
 else if(@$_SERVER['SERVER_NAME'] == "sistema.web" or @$_SERVER['SERVER_NAME'] == "hismet.com.br")
@@ -23,7 +23,7 @@ else if(@$_SERVER['SERVER_NAME'] == "sistema.web" or @$_SERVER['SERVER_NAME'] ==
 	$_SESSION['tema'] = "blue";
 	$_SESSION['img'] = "web";
 	$_SESSION['pg'] = "pages";
-	$_SESSION['template'] = "template/layout/site/";
+	$_SESSION['template'] = "/template/layout/site/";
 	
 	//print('<script> localStorage.setItem("sistema", "'.$sistema.'"); </script>');
 }
@@ -78,34 +78,34 @@ $string = '{
   "name": "'.$_SESSION['nomesoft'].'",
   "short_name": "'.$_SESSION['nomesoft'].'",
   "icons": [{
-    "src": "/images/icons/'.$_SESSION['img'].'/icon-128x128.png",
+    "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-128x128.png",
       "sizes": "128x128",
       "type": "image/png"
     }, {
-      "src": "/images/icons/'.$_SESSION['img'].'/icon-144x144.png",
+      "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-144x144.png",
       "sizes": "144x144",
       "type": "image/png"
     }, {
-      "src": "/images/icons/'.$_SESSION['img'].'/icon-152x152.png",
+      "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-152x152.png",
       "sizes": "152x152",
       "type": "image/png"
     }, {
-      "src": "/images/icons/'.$_SESSION['img'].'/icon-192x192.png",
+      "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
 	  "purpose": "maskable"
     }, {
-      "src": "/images/icons/'.$_SESSION['img'].'/icon-256x256.png",
+      "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-256x256.png",
       "sizes": "256x256",
       "type": "image/png",
 	  "purpose": "maskable"
     }, {
-      "src": "/images/icons/'.$_SESSION['img'].'/icon-512x512.png",
+      "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
 	  "purpose": "maskable"
     }, {
-      "src": "/images/icons/'.$_SESSION['img'].'/icon-32x32.png",
+      "src": "'.$_SESSION['template'].'images/icons/'.$_SESSION['img'].'/icon-32x32.png",
       "sizes": "32x32",
       "type": "image/png",
 	  "purpose": "maskable"
