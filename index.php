@@ -3,7 +3,7 @@
 if($_SERVER["HTTPS"] != "on" and @$_SERVER['SERVER_NAME'] == "app.hismet.com.br" or $_SERVER["HTTPS"] != "on" and @$_SERVER['SERVER_NAME'] == "hismet.com.br")
 {
     header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
-    exit();
+    //exit();
 }
 else
 {
