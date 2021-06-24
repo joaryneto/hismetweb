@@ -1,6 +1,6 @@
 <?
 
-if($_SERVER["HTTPS"] != "on" and @$_SERVER['SERVER_NAME'] == "app.hismet.com.br" or $_SERVER["HTTPS"] != "on" and @$_SERVER['SERVER_NAME'] == "hismet.com.br")
+if($_SERVER["HTTPS"] != "on" and @$_SERVER['SERVER_NAME'] == "app.hismet.com.br")
 {
     header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
     exit();
@@ -31,13 +31,28 @@ require_once("./load/load.php");
 		{
 	       include ('template/layout/site/login.php');  
 		}
-		else if(@$_GET['h'] == "sistema")
+		else if(@$_GET['sl'] == "sistema")
 		{
 	       include ('template/layout/site/sistema.php');  
 		}
 		else
 		{
 		   include ('template/layout/site/index.php');
+		}
+	}
+	else if($_SESSION['tipo'] == 3)
+	{
+		if(@$_GET['sl'] == "login")
+		{
+	       include ('template/layout/spa/login.php');  
+		}
+		else if(@$_GET['sl'] == "sistema")
+		{
+	       include ('template/layout/spa/sistema.php');  
+		}
+		else
+		{
+		   include ('template/layout/spa/index.php');
 		}
 	}
 }
