@@ -26,7 +26,7 @@
 			while($row = mysqli_fetch_array($RES))
 			{
 			?>
-            <div data-src="<? echo $_SESSION['template'];?>images/slide/slide_01.png">
+            <div data-src="<? echo $_SESSION['template'];?>images/slide/<? echo $row['imagens'];?>">
               <div class="camera_caption fadeIn">
                 <div class="container">
                   <div class="row">
