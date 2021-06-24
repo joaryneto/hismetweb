@@ -135,16 +135,16 @@ btnSave.addEventListener('click', function() {
 });
 
     </script>
-    <script src="/scripts/luxon-1.11.4.js"></script>
-  <script src="/scripts/app.js"></script>
+    <script src="<? echo $_SESSION['template'];?>scripts/luxon-1.11.4.js"></script>
+  <script src="<? echo $_SESSION['template'];?>scripts/app.js"></script>
   <!-- CODELAB: Add the install script here -->
-  <script src="/scripts/install.js"></script>
+  <script src="<? echo $_SESSION['template'];?>scripts/install.js"></script>
 
   <script>
     // CODELAB: Register service worker.
 	if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register('<? echo $_SESSION['template'];?>service-worker.js')
         .then((reg) => {
           console.log('Service worker registered.', reg);
         });

@@ -22,38 +22,31 @@
     <meta name="description" content="">
     <meta name="author" content="EC Tecnologia">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="template/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<? echo $_SESSION['template'];?>assets/images/favicon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1"/>
-	<title>EC TECNOLOGIA - Equipe cuiabana de Tecnologia da informação</title>
+	<title>Hismet - Higiene - Segurança e Medicina do Trabalho</title>
 	<meta name="codelab" content="your-first-pwa-v3">
 	<!-- CODELAB: Add iOS meta tags and icons -->
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-title" content="EC Tecnologia">
-	<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/<?=$_SESSION['img'];?>/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/<?=$_SESSION['img'];?>/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/<?=$_SESSION['img'];?>/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/<?=$_SESSION['img'];?>/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/<?=$_SESSION['img'];?>/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/<?=$_SESSION['img'];?>/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/<?=$_SESSION['img'];?>/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/<?=$_SESSION['img'];?>/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/<?=$_SESSION['img'];?>/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/<?=$_SESSION['img'];?>/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/images/icons/<?=$_SESSION['img'];?>/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/images/icons/<?=$_SESSION['img'];?>/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/images/icons/<?=$_SESSION['img'];?>/favicon-16x16.png">
-	<?if($_SESSION['tipo'] == 1){?>
-	<link rel="manifest" href="/manifest.json">
-	<?}else if($_SESSION['tipo'] == 2){?>
-	<link rel="manifest" href="/manifest1.json">
-	<?}else if($_SESSION['tipo'] == 3){?>
-	<link rel="manifest" href="/manifest2.json">
-	<?}else if($_SESSION['tipo'] == 4){?>
-	<link rel="manifest" href="/manifest3.json">
-	<?}?>
+	<link rel="apple-touch-icon" sizes="57x57" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/favicon-16x16.png">
+	
+	<link rel="manifest" href="<? echo $_SESSION['template'];?>manifest.json">
 	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="/images/icons/<?=$_SESSION['img'];?>/ms-icon-144x144.png">
+	<meta name="msapplication-TileImage" content="<? echo $_SESSION['template'];?>images/icons/<?=$_SESSION['img'];?>/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 	<!-- CODELAB: Add description here -->
 	<meta name="description" content="Equipe cuiabana de Tecnologia da informação">
