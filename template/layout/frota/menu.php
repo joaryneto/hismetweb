@@ -17,7 +17,7 @@ $('.t-cadastro').on('click',function()
                 <p class="text-mute my-0 small"></p>
             </div>
             <div class="col-auto align-self-center">
-                <a href="#" class="btn btn-link text-white p-2"><i class="material-icons">power_settings_new</i></a>
+                <a onclick="requestPage('?br=deslogar','conteudo','GET');" href="#"  class="btn btn-link text-white p-2"><i class="material-icons">power_settings_new</i></a>
             </div>
         </div>
         <div class="list-group main-menu my-4">
