@@ -291,7 +291,7 @@ if($x == 0)
 <? }else if($_GET['modal'] == 2){?>
 <!-- Modal -->
 			<div class="modal-header pmd-modal-bordered">
-				<h2 class="pmd-card-title-text">Serviços de Profissional</h2>
+				<h2 class="pmd-card-title-text">Serviços de Motorista</h2>
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 			</div>
 			<div class="modal-body">
@@ -302,7 +302,6 @@ if($x == 0)
 			$('#m_servicos').on('click',function()
 			{
 				var servico = document.getElementById('servico').value;
-				var comissao = document.getElementById('comissao').value;
 				//var datav = document.getElementById('dataagenda2').value;
 				
 				if(servico == "")
@@ -316,13 +315,13 @@ if($x == 0)
 				}
 				else
 				{
-			       requestPage2('?br=atu_servicos&codigo=<? echo $_GET['codigo'];?>&servico='+ servico +'&comissao='+ comissao +'&ap=1&load=1','u_load','GET');
+			       requestPage2('?br=atu_carros&codigo=<? echo $_GET['codigo'];?>&servico='+ servico +'&ap=1&load=1','u_load','GET');
 				}
 			});
 			
 			function m_desabilitar(servico)
 			{				
-			    requestPage2('?br=atu_servicos&codigo=<? echo $_GET['codigo'];?>&servico='+ servico +'&ap=2&load=1','u_load','GET');
+			    requestPage2('?br=atu_carros&codigo=<? echo $_GET['codigo'];?>&servico='+ servico +'&ap=2&load=1','u_load','GET');
 			}
 			
 			function m_change()
@@ -339,9 +338,9 @@ if($x == 0)
 			$('#comissao').mask('##0,00%', {reverse: true});
 			
 			</script>
-			<div class="form-group col-md-6 m-t-20"><label>Serviço :</label>
+			<div class="form-group col-md-6 m-t-20"><label>Carros :</label>
 				<select name="servico" id="servico" class="form-control LP" onclick="m_change();" style="width: 100%; height:36px;">
-                <option value="">Selecionar Serviço</option>
+                <option value="">Selecionar Carro</option>
 				 <?
 				 echo $SQL2 = "SELECT produtos.codigo, produtos.descricao, produtos.descricao from produtos where sistema='".$_SESSION['sistema']."' and produtos.tipo=2 order by produtos.descricao ASC";
 				 $RES2 = mysqli_query($db,$SQL2);
@@ -352,9 +351,6 @@ if($x == 0)
 			     }
 			   ?>
             </select>
-			</div>
-			<div class="form-group col-md-3 m-t-20"><label>Comissão :</label>
-			   <input type="text" name="comissao" id="comissao" value="" placeholder="0" class="form-control">
 			</div>
 			<div class="form-group col-md-3 m-t-20"><label></label>
 			<br>
@@ -369,10 +365,7 @@ if($x == 0)
 				<thead>
 					<tr>
 						<th>Cod.</th>
-						<th>Serviço</th>
-						<th>Preço</th>
-						<th>Comissão</th>
-						<th>Total</th>
+						<th>Carro</th>
 						<th>Opções</th>
 					</tr>
 				</thead>
@@ -392,11 +385,8 @@ if($x == 0)
 			  ?>
 				<tr><!-- color: #20aee3; -->
 					<td data-title="Cod."><? echo $row['codigo'];?></td>
-					<td data-title="Serviço"><? echo $row['descricao'];?></td>
-					<td data-title="Preço">R$ <? echo number_format($row['preco'],2,",",".");?> </td>
-					<td data-title="Comissão"><? echo number_format($row['comissao'], 2, ',', ',');?> % </td>
-					<td data-title="Total">R$ <? echo number_format($comissao,2,",","."); ?></td>
-					<td data-title="Opções"><a href="javascript: void(0);" onclick="m_desabilitar(<?=$row['codigo'];?>);"><i class="fa fa-ban" style="font-size: 150%; color: red;"></i></a></td>
+					<td data-title="Carro"><? echo $row['descricao'];?></td>
+					<td data-title="Opções"><a href="javascript: void(0);" onclick="m_desabilitar(<?=$row['codigo'];?>);"><i class="fa fa-ban" style="font-size: 150%; color: red;">X</i></a></td>
 				</tr>
 			  <? $b = 1;
 			  

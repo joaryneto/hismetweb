@@ -168,17 +168,20 @@ if(isset($codigo))
 }
 
 ?>		
-<div class="container-fluid bg-template mb-4">
-            <div class="row hn-154 position-relative">
-			<div class="background opac heightset">
-					<i class="material-icons" style="font-size: 100px;position: absolute;left: 45%;top: 50px;">supervisor_account</i> 
+<div class="container-fluid h-300 position-relative overflow-hidden bg-default">
+                    <div class="background opac">
+                        <img src="<? echo $_SESSION['template'];?>assets/img/carro.jpg" alt="">
+                    </div>
                 </div>
-                <div class="container align-self-end">
-                    <h2 class="font-weight-light text-uppercase"><? echo $_SESSION["DESCRICAOPG"] = "Usuarios";?></h2>
-                    <p class="text-mute mb-2"><? echo $_SESSION["DESCRICAOPG2"] = "Lista";?></p>
-                </div>
-            </div>
-        </div>
+                <div class="container mb-4 top-150 position-relative z-1">
+                    <h4 class="text-white mb-3 text-center">Cadastro de Usuarios<br>
+                        <span class="text-mute small mt-2"></span>
+                    </h4>
+                    <div class="card border-0 shadow-light">
+                        <div class="card-body">
+                        </div>
+                    </div>
+</div> 
 <div class="container pt-5">
   
   <div class="row">
@@ -196,10 +199,6 @@ if(isset($codigo))
 				var senha = document.getElementById('senha').value;
 				var tipo = document.getElementById('tipo').value;
 				var situacao = document.getElementById('situacao').value;
-				var banco = document.getElementById('banco').value;
-				var agencia = document.getElementById('agencia').value;
-				var conta = document.getElementById('conta').value;
-				var tipoconta = document.getElementById('tipoconta').value;
 				
 				if(login == "")
 				{
@@ -214,9 +213,9 @@ if(isset($codigo))
 				{
 					<? if(isset($inputb['codigo']))
 				   {?>
-				      requestPage2('?br=cad_usuarios&codigo=<?=$codigo;?>&cpf='+ cpf +'&login='+ login +'&nome='+ nome +'&email='+ email +'&nascimento='+ nascimento +'&senha='+ senha +'&tipo='+ tipo +'&situacao='+ situacao +'&banco='+ banco +'&agencia='+ agencia +'&conta='+ conta +'&tipoconta='+ tipoconta +'&modal=1&ap=2&load=1','modals','GET');
+				      requestPage2('?br=cad_usuarios&codigo=<?=$codigo;?>&cpf='+ cpf +'&login='+ login +'&nome='+ nome +'&email='+ email +'&nascimento='+ nascimento +'&senha='+ senha +'&tipo='+ tipo +'&situacao='+ situacao +'&modal=1&ap=2&load=1','modals','GET');
 				   <? } else {?>
-				      requestPage2('?br=cad_usuarios&cpf='+ cpf +'&login='+ login +'&nome='+ nome +'&email='+ email +'&nascimento='+ nascimento +'&senha='+ senha +'&tipo='+ tipo +'&situacao='+ situacao +'&banco='+ banco +'&agencia='+ agencia +'&conta='+ conta +'&tipoconta='+ tipoconta +'&modal=1&ap=1&load=1','modals','GET');
+				      requestPage2('?br=cad_usuarios&cpf='+ cpf +'&login='+ login +'&nome='+ nome +'&email='+ email +'&nascimento='+ nascimento +'&senha='+ senha +'&tipo='+ tipo +'&situacao='+ situacao +'&modal=1&ap=1&load=1','modals','GET');
 				   <? } ?>
 				}
 
@@ -286,25 +285,6 @@ if(isset($codigo))
                                     <option>Selecionar Situação</option>
 									       <option value="1" <? if("1" == $situacao){ echo "selected"; } ?>>Ativa</option>
                                            <option value="0" <? if("0" == $situacao){ echo "selected"; } ?>>Inativa</option>
-                                </select>
-								</div>
-								<div class="form-group col-md-12 m-t-20"><label></label>
-								<h4>Conta do Banco</h4>
-								</div>
-								<div class="form-group col-md-3 m-t-20"><label>Banco :</label>
-								<input type="texto" name="banco" id="banco" value="<? if(isset($_GET['codigo'])){ echo $banco;} ?>" class="form-control">
-								</div>
-								<div class="form-group col-md-2 m-t-20"><label>Agencia :</label>
-								<input type="texto" name="agencia" id="agencia" value="<? if(isset($_GET['codigo'])){ echo $agencia;} ?>" class="form-control">
-								</div>
-								<div class="form-group col-md-2 m-t-20"><label>Conta :</label>
-								<input type="texto" name="conta" id="conta" value="<? if(isset($_GET['codigo'])){ echo $conta;} ?>" class="form-control">
-								</div>
-								<div class="form-group col-md-2 m-t-20"><label>Tipo da Conta :</label>
-								<select name="tipoconta" id="tipoconta" class="form-control" style="width: 100%; height:36px;">
-                                 <option value="">Tipo Conta</option>
-								   <option value="1" <? if("1" == $tipoconta){ echo "selected"; } ?>>Poupança</option>
-                                   <option value="0" <? if("0" == $tipoconta){ echo "selected"; } ?>>Corrente</option>
                                 </select>
 								</div>
 								<!--< } ?> -->

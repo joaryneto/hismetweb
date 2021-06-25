@@ -253,7 +253,7 @@ if(@$inputb['ap'] == 1)
 	<div class="m-t-40 row" id="forcaixa">
 	<div class="form-group col-md-12 m-t-20">
 	<select name="profissional" id="profissional" class="form-control" onchange="pdata()" autocomplete="off">
-	<option value="">Escolher Profissional</option>
+	<option value="">Escolher Motorista</option>
 		<?
 		
 		$SQL1 = "SELECT * FROM usuarios where sistema='".$_SESSION['sistema']."' and tipo in (2,3,4) and status=1;";
@@ -279,22 +279,20 @@ if(@$inputb['ap'] == 1)
 	</div>
 	<div class="form-group col-md-12 m-t-20">
 	<select name="servico" id="servico" class="form-control servico" placeholder="Escolha um serviço" disabled autocomplete="off">
-	<option value="">Escolher Serviço</option>
+	<option value="">Escolher Carro</option>
 	</select>
 	</div>
 	</div>
 	<div id="dtable" style="display: none;">
-	<h4>Serviços agendados :</h4>
+	<h4>Pré-Agendados :</h4>
 	<div class="form-group pmd-textfield pmd-textfield-floating-label" id="s_load">
 	<div class="pmd-table-card pmd-card pmd-z-depth pmd-card-custom-view">
 		<table class="table pmd-table">
 			<thead>
 				<tr>
 					<th>Descrição</th>
-					<th>Profissional</th>
+					<th>Motorista</th>
 					<th>Data - Hora</th>
-					<th>Valor</th>
-					
 				</tr>
 			</thead>
 			<tbody id="listaservicos">
@@ -331,10 +329,10 @@ if(@$inputb['ap'] == 1)
 	 </div> 
 	 </div>
 	 <div class="form-group pmd-textfield pmd-textfield-floating-label">
-	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-primary" href="javascript: void(0);" onclick="servico_add(<?=$rows['codigo'];?>);"><i class="material-icons">add_shopping_cart</i>  Adicionar Serviço</a>
+	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-primary" href="javascript: void(0);" onclick="servico_add(<?=$rows['codigo'];?>);"><i class="material-icons">add_shopping_cart</i> Adicionar</a>
 	 </div>
 	 
-	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-warning" href="javascript: void(0);" onclick="sv_itens();"><b id="sv_qtd"></b> <i class="material-icons">add_shopping_cart</i> Serviços Pré-Agendados</a><h2 id="sv_total"><span style="color: green;">Valor Total: R$ 0,00</span></h2>
+	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-warning" href="javascript: void(0);" onclick="sv_itens();"><b id="sv_qtd"></b> <i class="material-icons">calendar_today</i>Pré-Agendados</a><h2 id="s_total"><span style="color: green;"></span></h2>
 	 <br>
 	 <div class="form-group pmd-textfield pmd-textfield-floating-label">
 	    <a class="btn pmd-btn-outline pmd-ripple-effect btn-primary" href="javascript: void(0);" onclick="cp_proximo(<?=$_SESSION['agendamento'];?>);"><i class="material-icons">person_add</i>  Proximo</a>
@@ -848,7 +846,7 @@ if(@$inputb['lservico'] == "true")
 { 
     $p_codigo = @$inputb['profissional'];
     ?>
-    <option value="">Escolher Serviço</option>
+    <option value="">Escolher Carro</option>
 	<?  
 	
 	$SQL = "SELECT produtos.codigo, produtos.descricao FROM produtos 
@@ -930,9 +928,6 @@ else if(@$inputb['load'] == 2)
 		     </td>
 		  <td data-title="Data - Hora">
 		        <?=formatodata($row['data']);?> - <?=formatohora($row['hora']);?>
-		     </td>
-	     <td data-title="Preço">
-		        R$ <?=number_format($row['preco'],2,",",".");?>
 		     </td>
 		</tr>
 	    <?	  

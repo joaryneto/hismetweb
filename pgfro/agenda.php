@@ -17,21 +17,25 @@ if (basename($_SERVER["REQUEST_URI"]) === basename(__FILE__))
    //exit("<strong> Erro: Você não tem permissão. </strong>");
 //}
 
-?>             
-<div class="container-fluid bg-template mb-4">
-            <div class="row hn-290 position-relative">
-			<div class="background opac heightset">
-                    <i class="fa fa-calendar" style="font-size: 140px;position: absolute;left: 40%;top: 50px;"></i>
+?> 
+
+<div class="container-fluid h-300 position-relative overflow-hidden bg-default">
+                    <div class="background opac">
+                        <img src="<? echo $_SESSION['template'];?>assets/img/carro.jpg" alt="">
+                    </div>
                 </div>
-                <div class="container align-self-end">
-                    <h2 class="font-weight-light text-uppercase"><? echo $_SESSION["DESCRICAOPG"] = "Agenda";?></h2>
-                    <p class="text-mute mb-2"><? echo $_SESSION["DESCRICAOPG2"] = "Lista";?></p>
-                    <input type="text" Onkeyup="pesquisar(this.value);" class="form-control form-control-lg search bottom-25 position-relative border-0" placeholder="Pesquisa">
-					<button class='btn btn-info btnadd-sh a-agenda2'><i class='fa fa-plus-circle'></i></button>
-					
-                </div>
-            </div>
-        </div>   	  
+                <div class="container mb-4 top-150 position-relative z-1">
+                    <h4 class="text-white mb-3 text-center">Agenda de Carros<br>
+                        <span class="text-mute small mt-2"></span>
+                    </h4>
+                    <div class="card border-0 shadow-light">
+                        <div class="card-body">
+                            <input type="text" Onkeyup="pesquisar(this.value);" class="form-control form-control-lg mb-3" placeholder="Busca">
+                            <button class="btn btn-sm btn-outline-default my-1 a-agenda2">Agendar</button>
+                        </div>
+                    </div>
+</div>            
+  	  
 <div class="container pt-5">
   
   <div class="row">

@@ -1,3 +1,10 @@
+<script>
+$('.t-cadastro').on('click',function()
+{	
+   //b_menuslow();
+   requestPage('?br=cad_usuarios','conteudo','GET');
+});
+</script>
 <div class="sidebar">
         <div class="row no-gutters">
             <div class="col-auto align-self-center">
@@ -15,6 +22,6 @@
         </div>
         <div class="list-group main-menu my-4">
             <a href="index.html" class="list-group-item list-group-item-action active"><i class="material-icons">home</i>Inicio</a>
-            <a href="doctors.html" class="list-group-item list-group-item-action"><i class="material-icons">medical_services</i>Cadastro</a>
-            <a href="products.html" class="list-group-item list-group-item-action"><i class="material-icons">shopping_cart</i>Shopping</a>
+			<a href="#" onclick="requestPage('?br=cad_usuarios','conteudo','GET');" class="list-group-item list-group-item-action"><i class="material-icons">supervisor_account</i>Usuarios</a>
         </div>
+    </div>
