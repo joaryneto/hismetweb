@@ -41,6 +41,21 @@ if(!$db = mysqli_connect("mysql742.umbler.com:41890", "sistemaonline", "w9|2-SBg
 
 //mysqli_close($db);
 }
+else if($_SESSION['tipo'] == 3)
+{	
+
+if(!$db = mysqli_connect("mysql742.umbler.com:41890", "sistemafrota", "9[xU{_y{W-y7"))
+{
+    //print("<script>window.alert('Não conectou com banco...')</script>");
+	//echo "Não conectou com banco 3";
+	exit();
+}
+
+@mysqli_select_db($db, "sistemafrota");
+@mysqli_set_charset($db,'UTF8');
+
+//mysqli_close($db);
+}
 
 /*if(!$db2 = mysqli_connect("mysql669.umbler.com:41890","sistemaec","I_Jt{4|p6u"))
 {
