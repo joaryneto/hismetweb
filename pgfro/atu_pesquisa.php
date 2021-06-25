@@ -872,7 +872,7 @@ if(@$inputb['load'] == 1)
                         <div class="card-body position-relative">
                             <div class="media">
                                 <figure class="avatar avatar-40 mr-3">
-                                    <img src="assets/img/user3.png" alt="Generic placeholder image">
+                                    <img src="<? echo $_SESSION['template'];?>assets/img/user3.png" alt="Generic placeholder image">
                                 </figure>
                                 <div class="media-body">
                                     <h6 class="mb-1">Motorista: <? echo $row['username'];?> <small class="ml-2"><span class="text-warning icon_star"></span> <span class="text-mute"></span></small></h6>
