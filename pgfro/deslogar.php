@@ -1,7 +1,7 @@
   <script>
   swal({   
             title: "Atenção",   
-            text: "Cancelado com sucesso.",   
+            text: "Deslogado com sucesso.",   
             timer: 1000,   
             showConfirmButton: false 
         });
