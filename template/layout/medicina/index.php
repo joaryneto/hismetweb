@@ -72,7 +72,7 @@
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="container-fluid h-300 position-relative overflow-hidden bg-default">
                     <div class="background opac">
-                        <img src="assets/img/team2.jpg" alt="">
+                        <img src="<? echo $_SESSION['template'];?>assets/img/team2.jpg" alt="">
                     </div>
                 </div>
                 <div class="container mb-4 top-150 position-relative z-1">
