@@ -112,6 +112,10 @@ else if(@$inputb['ap'] == "2")
 	
 		$whe="senha='".$senha."',";
 	}
+	else
+	{
+		$whe ="";
+	}
 	
 	$SQL1 = "UPDATE usuarios SET cpf='".$inputb['cpf']."',login='".$inputb['login']."',$whe nome='".$inputb['nome']."',email='".$inputb['email']."',nascimento='".revertedata($inputb['nascimento'])."',tipo='".$inputb['tipo']."',status='".$inputb['situacao']."',banco='".$inputb['banco']."',agencia='".$inputb['agencia']."',conta='".$inputb['conta']."',tipoconta='".$inputb['tipoconta']."' where sistema='".$_SESSION['sistema']."' and codigo='".$inputb['codigo']."'";
 	$sucesso = mysqli_query($db,$SQL1);
