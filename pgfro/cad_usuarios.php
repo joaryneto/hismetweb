@@ -168,20 +168,7 @@ if(isset($codigo))
 }
 
 ?>		
-<div class="container-fluid h-300 position-relative overflow-hidden bg-default">
-                    <div class="background opac">
-                        <img src="<? echo $_SESSION['template'];?>assets/img/carro.jpg" alt="">
-                    </div>
-                </div>
-                <div class="container mb-4 top-150 position-relative z-1">
-                    <h4 class="text-white mb-3 text-center">Cadastro de Usuarios<br>
-                        <span class="text-mute small mt-2"></span>
-                    </h4>
-                    <div class="card border-0 shadow-light">
-                        <div class="card-body">
-                        </div>
-                    </div>
-</div> 
+
 <div class="container pt-5">
   
   <div class="row">
@@ -245,7 +232,7 @@ if(isset($codigo))
 								<div class="form-group col-md-3 m-t-20"><label>CPF :</label>
 								<input type="text" name="cpf" id="cpf" <? if(isset($_GET['codigo'])){ ?> value="<? echo $cpf; ?>" readonly <? } ?> class="form-control">
 								<button type="button" class="btn btn-info btnadd-us sh-usuarios">
-								<i class="fa fa-search"></i></button>
+								<span class="material-icons">search</span></button>
 								</div>
 								<div class="form-group col-md-3 m-t-20"><label>Login/Usuário :</label>
 								<input type="text" name="login" id="login" <? if(isset($_GET['codigo'])){?> value="<? echo $login;?>" readonly <? } ?>class="form-control">
@@ -275,7 +262,7 @@ if(isset($codigo))
 								<div class="form-actions">
 								<!--<a class="btn btn-info" onclick="javascript: ajaxLoader('?br=mexames&codigo=<? echo $_GET['codigo'];?>&list=1','listaexames','GET');" data-toggle="modal" data-target="#exames"><i class="fa fa-plus-circle"></i> Exames Atendidos</a>-->
 								<? if(!Empty($_GET['codigo']) and $tipo == 2 or !Empty($_GET['codigo']) and $tipo == 3 or !Empty($_GET['codigo']) and $tipo == 4){?>
-								<button type="button" class="btn btn-info" onclick="requestPage2('?br=modal_usuarios&codigo=<?=$_GET['codigo'];?>&modal=2','modals','GET');" data-toggle="modal" data-target="#modalap"><i class="fa fa-plus-circle"></i> Serviços </button>
+								<button type="button" class="btn btn-info" onclick="requestPage2('?br=modal_usuarios&codigo=<?=$_GET['codigo'];?>&modal=2','modals','GET');" data-toggle="modal" data-target="#modalap"><i class="fa fa-plus-circle"></i> Vincular Carro </button>
 								<!--<button type="button" class="btn btn-info" onclick="requestPage2('?br=modal_usuarios&codigo=<=$_GET['codigo'];?>&modal=3','modals','GET');" data-toggle="modal" data-target="#modalusuario"><i class="fa fa-plus-circle"></i> Permissões</button>-->
 								<!--<a href="" class="btn btn-info" data-toggle="modal" data-target="#assinatura"><i class="fa fa-plus-circle"></i> Assinatura</a>-->
 								<?  }   ?>

@@ -69,9 +69,37 @@
     <main class="flex-shrink-0 main-container">
         <!-- page content goes here -->
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-pane fade " id="cadastro" role="tabpanel" aria-labelledby="home-tab">
                 
-        <script>
+        
+            </div>
+			
+			
+			<div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
+			<div class="container-fluid h-300 position-relative overflow-hidden bg-default">
+                    <div class="background opac">
+                        <img src="<? echo $_SESSION['template'];?>assets/img/carro.jpg" alt="">
+                    </div>
+                </div>
+                <div class="container mb-4 top-150 position-relative z-1">
+                    <h4 class="text-white mb-3 text-center">Agenda de Carros<br>
+                        <span class="text-mute small mt-2"></span>
+                    </h4>
+                    <div class="card border-0 shadow-light">
+                        <div class="card-body">
+                            <input type="text" Onkeyup="pesquisar(this.value);" class="form-control form-control-lg mb-3" placeholder="Busca">
+                            <button class="btn btn-sm btn-outline-default my-1 a-agenda2">Agendar</button>
+                        </div>
+                    </div>
+</div>    
+                <div class="container-fluid pt-3 mb-4 bg-white border-bottom">
+                    
+
+                    <!-- Swiper -->
+                    
+                </div>
+                <div class="container mb-4">
+                    <script>
 		window.onload = function ()
 		{
 			requestPage('?br=agenda','conteudo','GET');
@@ -97,6 +125,8 @@
 		?>
 
         </div>
+                    
+                </div>
             </div>
         </div>
     </main>

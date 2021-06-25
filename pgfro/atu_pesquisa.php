@@ -211,7 +211,8 @@ if(@$inputb['ap'] == 1)
 		}
 		else
 		{
-		    requestPage2('?br=atu_pesquisa&codigo='+ codigo +'&ap=3','modals','GET');
+			$('#modalap').modal('hide');
+			requestPage2('?br=atu_pesquisa&ap=6&load=1','load','GET');
 		}
 	}
 	
@@ -335,7 +336,7 @@ if(@$inputb['ap'] == 1)
 	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-warning" href="javascript: void(0);" onclick="sv_itens();"><b id="sv_qtd"></b> <i class="material-icons">calendar_today</i>Pré-Agendados</a><h2 id="s_total"><span style="color: green;"></span></h2>
 	 <br>
 	 <div class="form-group pmd-textfield pmd-textfield-floating-label">
-	    <a class="btn pmd-btn-outline pmd-ripple-effect btn-primary" href="javascript: void(0);" onclick="cp_proximo(<?=$_SESSION['agendamento'];?>);"><i class="material-icons">person_add</i>  Proximo</a>
+	    <a class="btn pmd-btn-outline pmd-ripple-effect btn-primary" href="javascript: void(0);" onclick="cp_proximo(<?=$_SESSION['agendamento'];?>);"><i class="material-icons">person_add</i>  Concluir</a>
     </div>
 <script>
 function sv_itens()
@@ -564,28 +565,15 @@ else if(@$inputb['ap'] == 5)
 }
 else if(@$inputb['ap'] == 6)
 {
-	$cliente = $inputb['cliente'];
-	$nome = $inputb['nome'];
+	//$cliente = $inputb['cliente'];
+	//$nome = $inputb['nome'];
 	
-	if($cliente == "")
+	if($_SESSION['agendamento'] == "")
 	{
 		print('<script>
                swal({   
             title: "Atenção",   
-            text: "Escolha um cliente por favor.",   
-            timer: 2000,   
-            showConfirmButton: false 
-        });
-        </script>');
-		print("<script> requestPage2('?br=atu_pesquisa&ap=1','modals','GET');</script> ");
-		
-	}
-	else if($nome == "")
-	{
-		print('<script>
-               swal({   
-            title: "Atenção",   
-            text: "Escolha um cliente por favor.",   
+            text: "Agendamento invalido, feche e tente novamente.",   
             timer: 2000,   
             showConfirmButton: false 
         });
@@ -598,13 +586,13 @@ else if(@$inputb['ap'] == 6)
 		print('<script>
                swal({   
             title: "Atenção",   
-            text: "Serviços Agendado com sucesso.",   
+            text: "Carro Agendado com sucesso.",   
             timer: 2000,   
             showConfirmButton: false 
         });
         </script>');
 		
-		$SQL = "UPDATE agendamento SET status=1, cliente='".$cliente."', nome='".$nome."' where sistema='".$_SESSION['sistema']."' and codigo='".$_SESSION['agendamento']."'";
+		$SQL = "UPDATE agendamento SET status=1 where sistema='".$_SESSION['sistema']."' and codigo='".$_SESSION['agendamento']."'";
 		mysqli_query($db,$SQL);
 	}
 }
@@ -717,7 +705,7 @@ if(@$inputb['novo'] == 1)
   <script>
   swal({   
             title: "Atenção",   
-            text: "Excluido com sucesso.",   
+            text: "Cancelado com sucesso.",   
             timer: 1000,   
             showConfirmButton: false 
         });
@@ -868,42 +856,50 @@ if(@$inputb['load'] == 1)
 		$whe = " and clientes.nome like '%".$pesquisa."%'";
 	}else{ $whe = ""; }
 	
-	$SQL = "SELECT produtos.descricao,agendamento.codigo,agendamento_servicos.codigo as codservico,agendamento.cliente,clientes.nome, clientes.celular,agendamento_servicos.data,agendamento_servicos.hora,agendamento_servicos.profissional FROM agendamento 
-    inner join clientes on clientes.codigo=agendamento.cliente
+	echo '<div class="container mb-4">';
+	$SQL = "SELECT usuarios.nome as username,produtos.descricao,agendamento.codigo,agendamento_servicos.codigo as codservico,agendamento.cliente,clientes.nome, clientes.celular,agendamento_servicos.data,agendamento_servicos.hora,agendamento_servicos.profissional FROM agendamento 
+    left join clientes on clientes.codigo=agendamento.cliente
 	inner join agendamento_servicos on agendamento_servicos.agendamento=agendamento.codigo
 	inner join produtos on produtos.codigo=agendamento_servicos.servico
+	inner join usuarios on usuarios.codigo=agendamento_servicos.profissional
 	where agendamento.sistema='".$_SESSION['sistema']."' and agendamento_servicos.status=0 ORDER BY agendamento.codigo desc";
 	$RES = mysqli_query($db,$SQL);
 	while($row = mysqli_fetch_array($RES))
 	{
 		?>
-		<div class="col-12 col-md-6 mb-4">
-            <div class="row">
-                <div class="col-4">
-                    <figure class="m-0 h-150 w-100 rounded overflow-hidden">
-                        <div class="background" style='background-image: url("template/images/escova-inteligente.jpg");'>  
+		
+		<div class="card  border-0 shadow-sm mb-3">
+                        <div class="card-body position-relative">
+                            <div class="media">
+                                <figure class="avatar avatar-40 mr-3">
+                                    <img src="assets/img/user3.png" alt="Generic placeholder image">
+                                </figure>
+                                <div class="media-body">
+                                    <h6 class="mb-1"><? echo $row['username'];?> <small class="ml-2"><span class="text-warning icon_star"></span> <span class="text-mute"></span></small></h6>
+                                    <p class="small text-mute mb-0">Carro: <? echo $row['descricao'];?></p>
                                 </div>
-                            </figure>
+                            </div>
                         </div>
-                        <div class="col pl-0">
-                            <h3><p class="large text-mute" style="font-size: initial;"><? echo $row['nome'];?></p></h3>
-                            <p class="large text-mute" style="font-size: initial;">Serviço: <? echo $row['descricao'];?></p>
-							<p class="large text-mute" style="font-size: initial;">Dia: <? echo formatodata($row['data']);?> às Hora: <? echo formatohora($row['hora']);?>hs</p>
-                            <button type="button" onclick="agenda('<? echo $row['profissional'];?>','<? echo $row['codservico'];?>','<? echo $row['cliente'];?>','<? echo $row['data'];?>','<? echo $row['hora'];?>','<? echo $row['nome'];?>');" class="btn pmd-btn-outline pmd-ripple-effect btn-primary">Editar</button>
-						    <button type="button" onclick="agendaex('<? echo $row['codservico'];?>');" class="btn pmd-btn-outline pmd-ripple-effect btn-success">Finalizar</button>
-							<button type="button" onclick="agendaex('<? echo $row['codservico'];?>');" class="btn pmd-btn-outline pmd-ripple-effect btn-danger">Excluir</button>
-							<div class="pmd-card-actions">
-								<button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary" type="button" onclick="whats('<? echo str_replace("(","", str_replace(")","", str_replace("-","",$row['celular'])));?>','Bom dia *<? echo $row['nome'];?>*! %0APassando para lembrar que você tem horário agendado hoje às *<? echo formatohora($row['hora']);?>hs*.%0A%0A *Studio KA*');"><i class="fa fa-whatsapp" aria-hidden="true" style="font-size: 210%; color: green;"></i></button>
-								<button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary" type="button"><i class="material-icons pmd-sm">thumb_up</i></button>
-								<button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary" type="button"><i class="material-icons pmd-sm">drafts</i></button>
-							</div>
+                        <div class="card-footer position-relative">
+                            <div class="row ">
+                                <div class="col-auto pr-0 align-self-center">
+                                    <span class="material-icons vm">alarm </span>
+                                </div>
+                                <div class="col align-self-center">
+                                    <p class="mb-0">Dia: <? echo formatodata($row['data']);?> às Hora: <? echo formatohora($row['hora']);?>hs</p>
+                                </div>
+                                <div class="col-auto align-self-center">
+                                    <a class="btn btn-sm btn-outline-default" onclick="agendaex('<? echo $row['codservico'];?>');">Cancelar</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-					
-                </div>
+				
 			  <?
 			  
 	}
+	
+	echo '</div>';
 }
 else if(@$inputb['load'] == 2)
 {
