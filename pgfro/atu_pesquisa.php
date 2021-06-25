@@ -857,7 +857,7 @@ if(@$inputb['load'] == 1)
 	}else{ $whe = ""; }
 	
 	echo '<div class="container mb-4">';
-	$SQL = "SELECT usuarios.nome as username,produtos.descricao,agendamento.codigo,agendamento_servicos.codigo as codservico,agendamento.cliente,clientes.nome, clientes.celular,agendamento_servicos.data,agendamento_servicos.hora,agendamento_servicos.profissional FROM agendamento 
+	$SQL = "SELECT usuarios.nome as username,produtos.descricao,agendamento.codigo,agendamento_servicos.obs,agendamento_servicos.codigo as codservico,agendamento.cliente,clientes.nome, clientes.celular,agendamento_servicos.data,agendamento_servicos.hora,agendamento_servicos.profissional FROM agendamento 
     left join clientes on clientes.codigo=agendamento.cliente
 	inner join agendamento_servicos on agendamento_servicos.agendamento=agendamento.codigo
 	inner join produtos on produtos.codigo=agendamento_servicos.servico
@@ -875,8 +875,9 @@ if(@$inputb['load'] == 1)
                                     <img src="assets/img/user3.png" alt="Generic placeholder image">
                                 </figure>
                                 <div class="media-body">
-                                    <h6 class="mb-1"><? echo $row['username'];?> <small class="ml-2"><span class="text-warning icon_star"></span> <span class="text-mute"></span></small></h6>
-                                    <p class="small text-mute mb-0">Carro: <? echo $row['descricao'];?></p>
+                                    <h6 class="mb-1">Motorista: <? echo $row['username'];?> <small class="ml-2"><span class="text-warning icon_star"></span> <span class="text-mute"></span></small></h6>
+                                    <p class="small text-mute mb-0"><h6>Carro: <? echo $row['descricao'];?></h6></p>
+									<p class="small text-mute mb-0"><? echo $row['obs'];?></p>
                                 </div>
                             </div>
                         </div>
