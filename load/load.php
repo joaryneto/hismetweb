@@ -27,6 +27,20 @@ else if(@$_SERVER['SERVER_NAME'] == "sistema.web" or $_SERVER['SERVER_NAME'] == 
 	
 	//print('<script> localStorage.setItem("sistema", "'.$sistema.'"); </script>');
 }
+else if(@$_SERVER['SERVER_NAME'] == "sistema.frota" or $_SERVER['SERVER_NAME'] == "frota.hismet.com.br")
+{
+	$_SESSION['nosistema'] = "".$_SERVER['SERVER_NAME']."/login.php";
+	$_SESSION['nomesoft'] = "Frota Hismet";
+	$_SESSION['tipo'] = 3;
+	$_SESSION['manifest'] = "manifest.json";
+	$_SESSION['cor'] = "#FFFFFF";
+	$_SESSION['tema'] = "blue";
+	$_SESSION['img'] = "web";
+	$_SESSION['pg'] = "pgfro";
+	$_SESSION['template'] = "template/layout/frota/";
+	
+	//print('<script> localStorage.setItem("sistema", "'.$sistema.'"); </script>');
+}
 
 function formatodata($data){
     return date("d/m/Y", strtotime($data));
