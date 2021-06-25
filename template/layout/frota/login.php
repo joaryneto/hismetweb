@@ -17,7 +17,7 @@
             </div>
             <div class="col-12 align-self-center text-center">
                 <div class="loader-logo">
-                    <div class="logo">1<span>UX</span><span>UI</span>
+                    <div class="logo"><span></span><span></span>
                         <div class="loader-roller">
                             <div></div>
                             <div></div>
@@ -29,11 +29,10 @@
                             <div></div>
                         </div>
                     </div>
-                    <h4 class="logo-text"><span>OneUIUX</span><small>Mobile HTML</small></h4>
                 </div>
             </div>
             <div class="col-12 align-self-end text-center">
-                <p class="my-5">Please wait<br><small class="text-mute">A world of great designs is loading...</small></p>
+                <p class="my-5">Por favor, aguarde<br><small class="text-mute">Um mundo está carregando ...</small></p>
             </div>
         </div>
     </div>
@@ -77,7 +76,6 @@
                                 </div>
                             </div>
                             <div class="col-6 col-md py-1 text-right text-md-right">
-                                <a href="forgotpassword.html" class="text-white">Forgot Password?</a>
                             </div>
                         </div>
 						<div id="load"></div>
@@ -85,7 +83,6 @@
                             <a href="#" Onclick="logar();" class=" btn btn-lg btn-default default-shadow btn-block">Logar <span class="ml-2 icon arrow_right"></span></a>
                         </div>
                         <div class="mb-4">
-                            <p>Do not have account yet?<br>Please <a href="register.html" class="text-white">Sign up</a> here.</p>
                         </div>
                     </div>
                 </div>

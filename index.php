@@ -40,15 +40,15 @@ require_once("./load/load.php");
 	{
 		if(@$_GET['h'] == "login")
 		{
-	       include ('template/layout/site/login.php');  
+	       include ('template/layout/frota/login.php');  
 		}
-		else if(@$_GET['h'] == "sistema")
+		else if(@$_GET['h'] == "inicio")
 		{
-	       include ('template/layout/site/index.php');  
+	       include ('template/layout/frota/index.php');  
 		}
 		else
 		{
-		   include ('template/layout/site/index.php');
+		   include ('template/layout/frota/login.php');
 		}
 	}
 ?>

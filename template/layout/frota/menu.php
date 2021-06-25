@@ -14,16 +14,7 @@
             </div>
         </div>
         <div class="list-group main-menu my-4">
-            <a href="index.html" class="list-group-item list-group-item-action active"><i class="material-icons">home</i>Home</a>
-            <a href="doctors.html" class="list-group-item list-group-item-action"><i class="material-icons">medical_services</i>Doctors</a>
+            <a href="index.html" class="list-group-item list-group-item-action active"><i class="material-icons">home</i>Inicio</a>
+            <a href="doctors.html" class="list-group-item list-group-item-action"><i class="material-icons">medical_services</i>Cadastro</a>
             <a href="products.html" class="list-group-item list-group-item-action"><i class="material-icons">shopping_cart</i>Shopping</a>
-            <a href="orders.html" class="list-group-item list-group-item-action"><i class="material-icons">shopping_bag</i>Orders</a>
-            <a href="notification.html" class="list-group-item list-group-item-action"><i class="material-icons">notifications</i>Notification <span class="badge badge-dark text-white">2</span></a>
-            <a href="elements.html" class="list-group-item list-group-item-action"><i class="material-icons">list_alt</i>Pages & Elements</a>
-            <a href="setting.html" class="list-group-item list-group-item-action"><i class="material-icons">account_circle</i>Setting</a>
-            <a href="aboutus.html" class="list-group-item list-group-item-action"><i class="material-icons">business</i>About</a>
         </div>
-		<div class="list-group main-menu my-4">
-            <a href="" class="list-group-item list-group-item-action active"><i class="material-icons">home</i>Frota</a>
-        </div>
-    </div>
