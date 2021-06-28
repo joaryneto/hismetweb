@@ -55,7 +55,7 @@
             </div>
             <div>
                 <a href="cart.html" class="btn btn-link" type="button"><span aria-hidden="true" class="h5 icon_cart_alt"></span><span class="status-dot bg-danger"></span></a>
-                <a href="profile.html" class=""><span class="avatar avatar-30"><img src="assets/img/user1.png" alt=""></span></a>
+                <a href="#" class=""><span class="avatar avatar-30"><img src="<? echo $_SESSION['template'];?>/images/usuario.png" alt=""></span></a>
             </div>
         </nav>
     </header>
@@ -105,12 +105,14 @@
 
     <div class="footer-tabs border-top text-center">
         <ul class="nav nav-tabs nav-fill justify-content-center" id="myTab" role="tablist">
-            <li class="nav-item">
+            <? if($_SESSION['permissao'] == 4 ){?>
+			<li class="nav-item">
                 <a class="nav-link" id="home-tab" data-toggle="tab" onclick="requestPage('?br=cad_usuarios','conteudo','GET');">
                     <i class="h4 icon_profile"></i>
                     <small class="sr-only">Home</small>
                 </a>
             </li>
+			<? } ?>
             <li class="nav-item">
                 <a class="nav-link active" id="search-tab" data-toggle="tab" onclick="requestPage('?br=agenda','conteudo','GET');" >
                     <i class="h4 icon_calendar"></i>

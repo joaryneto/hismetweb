@@ -9,7 +9,7 @@ $('.t-cadastro').on('click',function()
         <div class="row no-gutters">
             <div class="col-auto align-self-center">
                 <figure class="avatar avatar-50">
-                    <img src="assets/img/user1.png" alt="">
+                    <img src="<? echo $_SESSION['template'];?>/images/usuario.png" alt="">
                 </figure>
             </div>
             <div class="col pl-3 align-self-center">
@@ -21,7 +21,9 @@ $('.t-cadastro').on('click',function()
             </div>
         </div>
         <div class="list-group main-menu my-4">
-            <a onclick="requestPage('?br=agenda','conteudo','GET');" class="list-group-item list-group-item-action active"><i class="material-icons">home</i>Inicio</a>
+            <a onclick="requestPage('?br=agenda','conteudo','GET');" class="list-group-item list-group-item-action active"><i class="material-icons">event</i>Agenda</a>
+			<? if($_SESSION['permissao'] == 4 ){?>
 			<a onclick="requestPage('?br=cad_usuarios','conteudo','GET');" class="list-group-item list-group-item-action"><i class="material-icons">supervisor_account</i>Usuarios</a>
+			<? } ?>
         </div>
     </div>

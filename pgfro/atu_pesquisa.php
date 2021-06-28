@@ -657,7 +657,7 @@ else if(@$inputb['ap'] == 8)
     mysqli_query($db,$SQL);
 	
 	$descricao = "Agendamento Cancelado";
-	$SQL2 = "INSERT INTO logs(sistema,evento,usuario,tipo) VALUES('".$_SESSION['sistema']."','".$descricao."','".$_SESSION['usuario']."','1');";
+	$SQL2 = "INSERT INTO logs(sistema,evento,descricao, usuario,tipo) VALUES('".$_SESSION['sistema']."','".$agendamento."','".$descricao."','".$_SESSION['usuario']."','1');";
     mysqli_query($db,$SQL2);
 	
     $y = 0;
@@ -911,7 +911,7 @@ if(@$inputb['load'] == 1)
                         <div class="card-body position-relative">
                             <div class="media">
                                 <figure class="avatar avatar-40 mr-3">
-                                    <img src="<? echo $_SESSION['template'];?>assets/img/user3.png" alt="Generic placeholder image">
+                                    <img src="<? echo $_SESSION['template'];?>images/usuario.png" alt="Generic placeholder image">
                                 </figure>
                                 <div class="media-body">
                                     <h6 class="mb-1">Motorista: <? echo $row['username'];?> <small class="ml-2"><span class="text-warning icon_star"></span> <span class="text-mute"></span></small></h6>
