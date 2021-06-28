@@ -87,7 +87,7 @@ function isMobile()
                         <div class="mb-4">
                             <a href="#" class=" btn btn-lg btn-default default-shadow btn-block" onclick="logar();">Logar <span class="ml-2 icon arrow_right"></span></a>
 							<? if(isMobile()){?>
-							<a href="#" class=" btn btn-lg btn-default default-shadow btn-block " id="btninstall">Instalar Aplicativo<span class="ml-2 icon arrow_right"></span></a>
+							<a id="btninstall" href="javascript:void(0);" class=" btn btn-lg btn-default default-shadow btn-block ">Instalar Aplicativo<span class="ml-2 icon arrow_right"></span></a>
 							<? } ?>
                         </div>
                         <div class="mb-4">
