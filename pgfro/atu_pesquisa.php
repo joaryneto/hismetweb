@@ -275,7 +275,7 @@ if(@$inputb['ap'] == 1)
 	<option value="">Escolher Motorista</option>
 		<?
 		
-		$SQL1 = "SELECT * FROM usuarios where sistema='".$_SESSION['sistema']."' and tipo in (2,3,4) and status=1;";
+		$SQL1 = "SELECT * FROM usuarios where sistema='".$_SESSION['sistema']."' and tipo in (1,2,3,4) and status=1;";
 		$RES1 = mysqli_query($db,$SQL1);
 		while($row = mysqli_fetch_array($RES1))
 		{
@@ -891,7 +891,17 @@ if(@$inputb['load'] == 1)
 	}
 	else
 	{ 
-        $whe = ""; 
+        $data = date("Y-m-d");
+        $whe = " and agendamento_servicos.data = '".$data."'"; 
+	}
+	
+	if($_SESSION['permissao'] == 4)
+	{
+		$whe2 = "";
+	}
+	else
+	{
+		$whe2 = "and agendamento.usuario='".$_SESSION['usuario']."'";
 	}
 	
 	echo '<div class="container mb-4">';
@@ -901,7 +911,7 @@ if(@$inputb['load'] == 1)
 	inner join agendamento_servicos on agendamento_servicos.agendamento=agendamento.codigo
 	inner join produtos on produtos.codigo=agendamento_servicos.servico
 	inner join usuarios on usuarios.codigo=agendamento_servicos.profissional
-	where agendamento.sistema='".$_SESSION['sistema']."' and agendamento_servicos.status=0 $whe ORDER BY agendamento.codigo desc";
+	where agendamento.sistema='".$_SESSION['sistema']."' and agendamento_servicos.status=0 $whe2 $whe ORDER BY agendamento.codigo desc";
 	$RES = mysqli_query($db,$SQL);
 	while($row = mysqli_fetch_array($RES))
 	{
@@ -926,7 +936,8 @@ if(@$inputb['load'] == 1)
                                     <span class="material-icons vm">alarm </span>
                                 </div>
                                 <div class="col align-self-center">
-                                    <p class="mb-0">Dia: <? echo formatodata($row['data']);?> às Hora: <? echo formatohora($row['hora']);?>hs</p>
+                                    <p class="mb-0">Dia: <? echo formatodata($row['data']);?></p>
+									<p class="mb-0">Hora: <? echo formatohora($row['hora']);?>hs</p>
                                 </div>
                                 <div class="col-auto align-self-center">
                                     <a class="btn btn-sm btn-outline-default" onclick="agendaex('<? echo $row['codservico'];?>');">Cancelar</a>

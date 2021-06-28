@@ -39,7 +39,7 @@ $_SESSION['datalimite'];
                         <div class="card-body">
 						
                         <input type="text" Onkeyup="pesquisar(this.value);" class="form-control form-control-lg mb-3" placeholder="Busca">
-                        <input id="data" type="text" OnChange="pesquisar(this.value);" class="form-control form-control-lg mb-3 dataag" placeholder="Data" readonly />  
+                        <input id="data" type="text" OnChange="pesquisar(this.value);" value="<? echo date("d/m/Y");?>" class="form-control form-control-lg mb-3 dataag" placeholder="Data" readonly />  
 						<script>
 						jQuery('.dataag').datepicker({
 								format: 'dd/mm/yyyy',

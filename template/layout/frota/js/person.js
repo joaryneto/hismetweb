@@ -136,6 +136,17 @@ $('#cad_cliente').on('click',function()
 
 function agendaex(agendamento)
 {
+	swal({   
+            title: "Atenção!",   
+            text: "Você tem certeza que deseja cancelar esse agendamento ? Lembrando que será registrado o usuario que cancelou!",   
+            type: "warning",   
+            showCancelButton: true,   
+            //confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Sim, !",
+            cancelButtonText: "Não!", 			
+            closeOnConfirm: true 
+        }, function()
+		{ 
 	if(agendamento == "")
 	{
 	   swal({   
@@ -149,6 +160,8 @@ function agendaex(agendamento)
 	{
 	   requestPage('?br=atu_pesquisa&codigo='+ agendamento +'&ap=8&load=1','load','GET');
 	}
+	
+		});
 }
 
 $('#agendaex').on('click',function(){	
