@@ -285,7 +285,7 @@ if(@$inputb['ap'] == 1)
 	</select>
 	</div>
     <? }else{ ?>
-	<input name="profissional" id="profissional" type="text" placeholder="Data" value="<? echo $_SESSION['usuario'];?>" autocomplete="off" class="form-control  form-control-lg data dataagenda"/>
+	<hidden name="profissional" id="profissional" type="text" placeholder="Data" value="<? echo $_SESSION['usuario'];?>" autocomplete="off" class="form-control  form-control-lg data dataagenda"/>
 	<?}?>
 	<div class="form-group col-md-12 m-t-20">
 	<input name="dataagenda" id="dataagenda" type="text" onchange="phorario(this.value);" disabled placeholder="Data" value="" autocomplete="off" class="form-control  form-control-lg data dataagenda"/>
