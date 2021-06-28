@@ -54,6 +54,7 @@
                 </a>
             </div>
             <div>
+                <a href="#" class="btn btn-link" type="button"><span aria-hidden="true" class="h5 icon_chat_alt "></span><span class="status-dot bg-danger"></span></a>
                 <a href="#" class=""><span class="avatar avatar-30"><img src="<? echo $_SESSION['template'];?>/images/usuario.png" alt=""></span></a>
             </div>
         </nav>

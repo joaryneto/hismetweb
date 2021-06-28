@@ -23,7 +23,9 @@ $('.t-cadastro').on('click',function()
         <div class="list-group main-menu my-4">
             <a onclick="requestPage('?br=agenda','conteudo','GET');" class="list-group-item list-group-item-action active"><i class="material-icons">event</i>Agenda</a>
 			<? if($_SESSION['permissao'] == 4 ){?>
-			<a onclick="requestPage('?br=cad_usuarios','conteudo','GET');" class="list-group-item list-group-item-action"><i class="material-icons">supervisor_account</i>Usuarios</a>
+			
+			   <a onclick="requestPage('?br=cad_usuarios','conteudo','GET');" class="list-group-item list-group-item-action"><i class="material-icons">supervisor_account</i>Usuarios</a>
+			
 			<? } ?>
         </div>
     </div>
