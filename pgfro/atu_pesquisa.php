@@ -171,7 +171,8 @@ if(@$inputb['ap'] == 1)
     {
 		await sleep(500);
 		
-		var profissional = document.getElementById('profissional').value;
+		//var profissional = document.getElementById('profissional').value;
+		var servico = document.getElementById('servico').value;
 		
 		if(profissional == null)
 		{
@@ -183,7 +184,7 @@ if(@$inputb['ap'] == 1)
 		}
 		else
 		{
-			requestoption('?br=atu_pesquisa&profissional='+ profissional +'&data='+ dataagenda +'&lhorario=true','hora','GET');
+			requestoption('?br=atu_pesquisa&servico='+ servico +'&data='+ dataagenda +'&lhorario=true','hora','GET');
 		}
 	}
 	
@@ -253,6 +254,19 @@ if(@$inputb['ap'] == 1)
 	</script>
 	<div class="m-t-40 row" id="forcaixa">
 	<div class="form-group col-md-12 m-t-20">
+	<select name="servico" id="servico" class="form-control servico" placeholder="Escolha um serviço" autocomplete="off">
+	<option value="">Escolher Carro</option>
+	<?
+		$SQL1 = "SELECT * FROM produtos where sistema='".$_SESSION['sistema']."' and status=1;";
+		$RES1 = mysqli_query($db,$SQL1);
+		while($row = mysqli_fetch_array($RES1))
+		{
+			echo "<option value='".$row['codigo']."'>".$row['descricao']."</option>";
+		}
+     ?>
+	</select>
+	</div>
+	<div class="form-group col-md-12 m-t-20">
 	<select name="profissional" id="profissional" class="form-control" onchange="pdata()" autocomplete="off">
 	<option value="">Escolher Motorista</option>
 		<?
@@ -271,17 +285,12 @@ if(@$inputb['ap'] == 1)
 	<input name="qtd" id="qtd" value="" type="hidden" value="0" autocomplete="off" class="form-control  form-control-lg" required="required"/>
 	</div>
 	<div class="form-group col-md-12 m-t-20">
-	<select name="hora" id="hora" class="form-control hora" placeholder="Escolha um serviço" disabled onchange="pservico();" autocomplete="off">
+	<select name="hora" id="hora" class="form-control hora" placeholder="Escolha um serviço" disabled autocomplete="off">
 	<option value="">Escolher Horario</option>
 	</select>
 	</div>
 	<div class="form-group col-md-12 m-t-20">
 	<textarea id="obs" name="obs" class="form-control" rows="2" cols="3" placeholder="Observação"></textarea>
-	</div>
-	<div class="form-group col-md-12 m-t-20">
-	<select name="servico" id="servico" class="form-control servico" placeholder="Escolha um serviço" disabled autocomplete="off">
-	<option value="">Escolher Carro</option>
-	</select>
 	</div>
 	</div>
 	<div id="dtable" style="display: none;">
@@ -774,7 +783,7 @@ if(@$inputb['addservico'] == "true")
 	print('<script> $("#dataagenda").val(""); </script>');
 	print('<script> $("#qtd").val("'.$row['qtd'].'"); </script>');
 	print('<script> document.getElementById("hora").innerHTML = "<option value=\'\'>Escolher Horario</option>";</script>');
-	print('<script> document.getElementById("servico").innerHTML = "<option value=\'\'>Escolher Serviço</option>";</script>');
+	//print('<script> document.getElementById("servico").innerHTML = "<option value=\'\'>Escolher Serviço</option>";</script>');
 	
 	print('<script> document.getElementById("sv_total").innerHTML = "<span style=\'color: green;\'>Valor Total: R$ '.number_format($row['total'],2,",",".").'</span>";</script>');
 	print('<script> document.getElementById("sv_qtd").innerHTML = "'.$row['qtd'].'";</script>');
@@ -784,6 +793,7 @@ if(@$inputb['lhorario'] == "true")
 {
     $data = @$inputb['data'];
 	$profissional = @$inputb['profissional'];
+	$servico = @$inputb['servico'];
 	
 	?>
 	<option value="">Escolher Horario</option>
@@ -801,7 +811,7 @@ if(@$inputb['lhorario'] == "true")
 		  
 		  $SQL2 = "SELECT agendamento_servicos.hora,agendamento.nome FROM agendamento 
 		  inner join agendamento_servicos on agendamento_servicos.agendamento=agendamento.codigo 
-		  where agendamento_servicos.sistema='".$_SESSION['sistema']."' and agendamento_servicos.data='".$data."' and agendamento_servicos.profissional='".$profissional."' and agendamento_servicos.hora='".$row1['hora']."'";
+		  where agendamento_servicos.sistema='".$_SESSION['sistema']."' and agendamento_servicos.data='".$data."' and agendamento_servicos.servico='".$servico."' and agendamento_servicos.hora='".$row1['hora']."'";
 		  $RES2 = mysqli_query($db,$SQL2);
 		  while($row2 = mysqli_fetch_array($RES2))
 		  {
