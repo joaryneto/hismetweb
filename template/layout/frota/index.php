@@ -54,7 +54,6 @@
                 </a>
             </div>
             <div>
-                <a href="cart.html" class="btn btn-link" type="button"><span aria-hidden="true" class="h5 icon_cart_alt"></span><span class="status-dot bg-danger"></span></a>
                 <a href="#" class=""><span class="avatar avatar-30"><img src="<? echo $_SESSION['template'];?>/images/usuario.png" alt=""></span></a>
             </div>
         </nav>

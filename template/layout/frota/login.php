@@ -39,7 +39,6 @@
     <!-- Page laoder ends -->
 
 
-
     <!-- Begin page content -->
     <main class="flex-shrink-0 main-container">
         <!-- page content goes here -->
@@ -65,9 +64,9 @@
                         </div>
                         <div class="form-group">
                             <label for="inputPassword" class="sr-only">Senha</label>
-                            <input type="password" id="inputPassword" class="form-control form-control-lg border-0" placeholder="Sua senha" required="">
+                            <input type="password" id="inputPassword" class="form-control form-control-lg border-0" onkeypress="if (event.keyCode === 13) {logar();}" placeholder="Sua senha" required="">
                         </div>
-
+                        
                         <div class="my-3 row">
                             <div class="col-6 col-md py-1 text-left">
                                 <div class="custom-control custom-checkbox">
@@ -80,7 +79,7 @@
                         </div>
 						<div id="load"></div>
                         <div class="mb-4">
-                            <a href="#" Onclick="logar();" class=" btn btn-lg btn-default default-shadow btn-block">Logar <span class="ml-2 icon arrow_right"></span></a>
+                            <a href="#" class=" btn btn-lg btn-default default-shadow btn-block" onclick="logar();">Logar <span class="ml-2 icon arrow_right"></span></a>
                         </div>
                         <div class="mb-4">
                         </div>
