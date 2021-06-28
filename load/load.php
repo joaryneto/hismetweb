@@ -21,7 +21,7 @@ else if(@$_SERVER['SERVER_NAME'] == "sistema.web" or $_SERVER['SERVER_NAME'] == 
 	$_SESSION['manifest'] = "manifest.json";
 	$_SESSION['cor'] = "#FFFFFF";
 	$_SESSION['tema'] = "blue";
-	$_SESSION['img'] = "web";
+	$_SESSION['img'] = "sistema";
 	$_SESSION['pg'] = "pages";
 	$_SESSION['template'] = "template/layout/site/";
 	
@@ -35,7 +35,7 @@ else if(@$_SERVER['SERVER_NAME'] == "sistema.frota" or $_SERVER['SERVER_NAME'] =
 	$_SESSION['manifest'] = "manifest.json";
 	$_SESSION['cor'] = "#FFFFFF";
 	$_SESSION['tema'] = "blue";
-	$_SESSION['img'] = "web";
+	$_SESSION['img'] = "sistema";
 	$_SESSION['pg'] = "pgfro";
 	$_SESSION['template'] = "template/layout/frota/";
 	
