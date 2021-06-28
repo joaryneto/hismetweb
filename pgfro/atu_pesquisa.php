@@ -649,6 +649,10 @@ else if(@$inputb['ap'] == 8)
     $SQL = "DELETE from agendamento_servicos WHERE sistema='".$_SESSION['sistema']."' and codigo='".$codigo."';";
     mysqli_query($db,$SQL);
 	
+	$descricao = "Agendamento Cancelado";
+	$SQL2 = "INSERT INTO logs(sistema,evento,tipo) VALUES('".$_SESSION['sistema']."','".$descricao."','1');";
+    mysqli_query($db,$SQL2);
+	
     $y = 0;
     $SQL = "SELECT * FROM agendamento_servicos where sistema='".$_SESSION['sistema']."' and agendamento='".$agendamento."'";
     $RES = mysqli_query($db,$SQL);
@@ -661,6 +665,7 @@ else if(@$inputb['ap'] == 8)
     {
 	   $SQL = "DELETE from agendamento WHERE sistema='".$_SESSION['sistema']."' and codigo='".$agendamento."';";
        mysqli_query($db,$SQL); 
+	   
     }
  ?>
  
