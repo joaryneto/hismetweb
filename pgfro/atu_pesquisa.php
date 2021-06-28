@@ -288,7 +288,7 @@ if(@$inputb['ap'] == 1)
 	<input name="profissional" id="profissional" type="hidden" placeholder="Data" value="<? echo $_SESSION['usuario'];?>" autocomplete="off" class="form-control  form-control-lg data dataagenda"/>
 	<?}?>
 	<div class="form-group col-md-12 m-t-20">
-<input name="dataagenda" id="dataagenda" type="text" onchange="phorario(this.value);" <? if($_SESSION['permissao'] == 4 ){ ?> disabled <?}?> placeholder="Data" value="" autocomplete="off" class="form-control  form-control-lg data dataagenda"/>
+    <input name="dataagenda" id="dataagenda" type="text" onchange="phorario(this.value);" <? if($_SESSION['permissao'] == 4 ){ ?> disabled <?}?> placeholder="Data" value="" autocomplete="off" class="form-control  form-control-lg data dataagenda"/>
 	<input name="qtd" id="qtd" value="" type="hidden" value="0" autocomplete="off" class="form-control  form-control-lg" required="required"/>
 	</div>
 	<div class="form-group col-md-12 m-t-20">
@@ -911,7 +911,7 @@ if(@$inputb['load'] == 1)
 	inner join agendamento_servicos on agendamento_servicos.agendamento=agendamento.codigo
 	inner join produtos on produtos.codigo=agendamento_servicos.servico
 	inner join usuarios on usuarios.codigo=agendamento_servicos.profissional
-	where agendamento.sistema='".$_SESSION['sistema']."' and agendamento_servicos.status=0 $whe2 $whe ORDER BY agendamento.codigo desc";
+	where agendamento.sistema='".$_SESSION['sistema']."' and agendamento_servicos.status=0 $whe $whe2 ORDER BY agendamento.codigo desc";
 	$RES = mysqli_query($db,$SQL);
 	while($row = mysqli_fetch_array($RES))
 	{
