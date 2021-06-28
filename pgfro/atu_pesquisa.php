@@ -207,7 +207,7 @@ if(@$inputb['ap'] == 1)
 		
 		if(qtd == 0)
 		{
-			swal('Atenção','Agende um Crro: Escolha o Motorista -> Data do Agendamento -> Horario e Carro. Após ter escolhido Clique no Botão Mais(+) depois em Proximo para escolher o Cliente.');
+			swal('Atenção','Agende um Carro: Escolha o Motorista -> Data do Agendamento -> Horario e Carro. Após ter escolhido Clique no Botão Mais(+) depois em Proximo para escolher o Cliente.');
 		}
 		else
 		{
@@ -332,8 +332,10 @@ if(@$inputb['ap'] == 1)
 	 <div class="form-group pmd-textfield pmd-textfield-floating-label">
 	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-primary" href="javascript: void(0);" onclick="servico_add(<?=$rows['codigo'];?>);"><i class="material-icons">add_shopping_cart</i> Adicionar</a>
 	 </div>
-	 
-	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-warning" href="javascript: void(0);" onclick="sv_itens();"><b id="sv_qtd"></b> <i class="material-icons">calendar_today</i>Pré-Agendados</a><h2 id="s_total"><span style="color: green;"></span></h2>
+	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-warning" href="javascript: void(0);" onclick="sv_itens();">Pré-Agendados</a>
+	 <h2 id="s_total">
+	 <span style="color: green;">
+	 </span></h2>
 	 <br>
 	 <div class="form-group pmd-textfield pmd-textfield-floating-label">
 	    <a class="btn pmd-btn-outline pmd-ripple-effect btn-primary" href="javascript: void(0);" onclick="cp_proximo(<?=$_SESSION['agendamento'];?>);"><i class="material-icons">person_add</i>  Concluir</a>
