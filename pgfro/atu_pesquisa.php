@@ -266,6 +266,10 @@ if(@$inputb['ap'] == 1)
      ?>
 	</select>
 	</div>
+	<? 
+	if($_SESSION['permissao'] == 4 )
+	{
+    ?>
 	<div class="form-group col-md-12 m-t-20">
 	<select name="profissional" id="profissional" class="form-control" onchange="pdata()" autocomplete="off">
 	<option value="">Escolher Motorista</option>
@@ -280,6 +284,9 @@ if(@$inputb['ap'] == 1)
      ?>
 	</select>
 	</div>
+    <? }else{ ?>
+	<input name="profissional" id="profissional" type="text" placeholder="Data" value="<? echo $_SESSION['usuario'];?>" autocomplete="off" class="form-control  form-control-lg data dataagenda"/>
+	<?}?>
 	<div class="form-group col-md-12 m-t-20">
 	<input name="dataagenda" id="dataagenda" type="text" onchange="phorario(this.value);" disabled placeholder="Data" value="" autocomplete="off" class="form-control  form-control-lg data dataagenda"/>
 	<input name="qtd" id="qtd" value="" type="hidden" value="0" autocomplete="off" class="form-control  form-control-lg" required="required"/>
@@ -868,15 +875,19 @@ if(@$inputb['load'] == 1)
 {
 	$data = "";
 	$pesquisa = "";
+	$whe = "";
+	
 	$pesquisa = @$inputb['pesquisa'];
 	$data = @revertedata($inputb['data']);
 	
-	if(strlen($pesquisa) > 2)
-	{
+	
 		
 	if(isset($pesquisa))
     {
-		$whe = " and produtos.descricao like '%".$pesquisa."%' and agendamento_servicos.data = '".$data."'";
+		if(strlen($pesquisa) > 2)
+	    {
+		  $whe = " and clientes.nome like '%".$pesquisa."%' or produtos.descricao like '%".$pesquisa."%' or agendamento_servicos.data = '".$data."'";
+		}
 	}
 	else
 	{ 
@@ -929,8 +940,6 @@ if(@$inputb['load'] == 1)
 	}
 	
 	echo '</div>';
-	
-	}
 	
 }
 else if(@$inputb['load'] == 2)

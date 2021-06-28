@@ -40,10 +40,15 @@ function logar()
 	}		
 }
 
-function pesquisar(pesquisa)
-{
-	var data = document.getElementById('data').value;
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
 	
+async function pesquisar(pesquisa)
+{
+	await sleep(300);
+	
+	var data = document.getElementById('data').value;
 	requestPage2('?br=atu_pesquisa&pesquisa='+ pesquisa +'&data='+ data +'&load=1','load','GET');
 }
 

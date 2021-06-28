@@ -49,10 +49,11 @@ $_SESSION['datalimite'];
 								orientation: "bottom left",
 								//startDate: "-0d"
 						});
+						
 	                    </script>
 						 <Br>
                            <button class="btn btn-sm btn-outline-default my-1 a-agenda2">Agendar</button>
-                        </div>
+						</div>
                     </div>
 </div>    
                 <div class="container-fluid pt-3 mb-4 bg-white border-bottom">
@@ -66,6 +67,7 @@ $_SESSION['datalimite'];
 			<!--Tabs with Icon example -->
              <div class="row" id="load">
 			    <script>
+				   
 				   $('.a-agenda2').on('click',function()
 				   {	
 				       $('#modalap').modal('show');
