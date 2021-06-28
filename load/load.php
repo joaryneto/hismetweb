@@ -2,7 +2,7 @@
 
 if(@$_SERVER['SERVER_NAME'] == "sistema.site" or $_SERVER['SERVER_NAME'] == "app.hismet.com.br")
 {
-	$_SESSION['nosistema'] = "".$_SERVER['SERVER_NAME']."/login.php";
+	$_SESSION['nosistema'] = "".$_SERVER['SERVER_NAME']."/";
 	$_SESSION['nomesoft'] = "App Hismet";
 	$_SESSION['tipo'] = 1;
 	$_SESSION['manifest'] = "manifest.json";
@@ -15,7 +15,7 @@ if(@$_SERVER['SERVER_NAME'] == "sistema.site" or $_SERVER['SERVER_NAME'] == "app
 }
 else if(@$_SERVER['SERVER_NAME'] == "sistema.web" or $_SERVER['SERVER_NAME'] == "hismet.com.br" or $_SERVER['SERVER_NAME'] == "www.hismet.com.br")
 {
-	$_SESSION['nosistema'] = "".$_SERVER['SERVER_NAME']."/login.php";
+	$_SESSION['nosistema'] = "".$_SERVER['SERVER_NAME']."/";
 	$_SESSION['nomesoft'] = "Hismet";
 	$_SESSION['tipo'] = 2;
 	$_SESSION['manifest'] = "manifest.json";
@@ -29,7 +29,7 @@ else if(@$_SERVER['SERVER_NAME'] == "sistema.web" or $_SERVER['SERVER_NAME'] == 
 }
 else if(@$_SERVER['SERVER_NAME'] == "sistema.frota" or $_SERVER['SERVER_NAME'] == "frota.hismet.com.br")
 {
-	$_SESSION['nosistema'] = "".$_SERVER['SERVER_NAME']."/login.php";
+	$_SESSION['nosistema'] = "".$_SERVER['SERVER_NAME']."/";
 	$_SESSION['nomesoft'] = "Frota Hismet";
 	$_SESSION['tipo'] = 3;
 	$_SESSION['manifest'] = "manifest.json";
