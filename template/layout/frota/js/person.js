@@ -42,7 +42,9 @@ function logar()
 
 function pesquisar(pesquisa)
 {
-	requestPage2('?br=atu_pesquisa&pesquisa='+ pesquisa +'&load=1','load','GET');
+	var data = document.getElementById('data').value;
+	
+	requestPage2('?br=atu_pesquisa&pesquisa='+ pesquisa +'&data='+ data +'&load=1','load','GET');
 }
 
 function p_agenda(pesquisa)

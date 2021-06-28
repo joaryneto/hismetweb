@@ -17,6 +17,13 @@ if (basename($_SERVER["REQUEST_URI"]) === basename(__FILE__))
    //exit("<strong> Erro: Você não tem permissão. </strong>");
 //}
 
+$datalimite=date("Y-m")."-".date("t",strtotime(date("Y-m")."-1"));
+//$mes = $_POST['mes'];
+
+$_SESSION['datalimite']=$datalimite;
+$_SESSION['datalimite'];
+
+
 ?> 
 
 <div class="container-fluid h-300 position-relative overflow-hidden bg-default">
@@ -30,8 +37,21 @@ if (basename($_SERVER["REQUEST_URI"]) === basename(__FILE__))
                     </h4>
                     <div class="card border-0 shadow-light">
                         <div class="card-body">
-                            <input type="text" Onkeyup="pesquisar(this.value);" class="form-control form-control-lg mb-3" placeholder="Busca">
-                            <button class="btn btn-sm btn-outline-default my-1 a-agenda2">Agendar</button>
+						
+                        <input type="text" Onkeyup="pesquisar(this.value);" class="form-control form-control-lg mb-3" placeholder="Busca">
+                        <input id="data" type="text" OnChange="pesquisar(this.value);" class="form-control form-control-lg mb-3 dataag" placeholder="Data">  
+						<script>
+						jQuery('.dataag').datepicker({
+								format: 'dd/mm/yyyy',
+								autoclose: true,
+								todayHighlight: true,
+								language: "pt-BR",
+								orientation: "bottom left",
+								//startDate: "-0d"
+						});
+	                    </script>
+						 <Br>
+                           <button class="btn btn-sm btn-outline-default my-1 a-agenda2">Agendar</button>
                         </div>
                     </div>
 </div>    

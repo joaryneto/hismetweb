@@ -866,20 +866,31 @@ if(@$inputb['lservico'] == "true")
 
 if(@$inputb['load'] == 1)
 {
+	$data = "";
+	$pesquisa = "";
 	$pesquisa = @$inputb['pesquisa'];
+	$data = @revertedata($inputb['data']);
 	
+	if(strlen($pesquisa) > 2)
+	{
+		
 	if(isset($pesquisa))
     {
-		$whe = " and clientes.nome like '%".$pesquisa."%'";
-	}else{ $whe = ""; }
+		$whe = " and produtos.descricao like '%".$pesquisa."%' and agendamento_servicos.data = '".$data."'";
+	}
+	else
+	{ 
+        $whe = ""; 
+	}
 	
 	echo '<div class="container mb-4">';
+	
 	$SQL = "SELECT usuarios.nome as username,produtos.descricao,agendamento.codigo,agendamento_servicos.obs,agendamento_servicos.codigo as codservico,agendamento.cliente,clientes.nome, clientes.celular,agendamento_servicos.data,agendamento_servicos.hora,agendamento_servicos.profissional FROM agendamento 
     left join clientes on clientes.codigo=agendamento.cliente
 	inner join agendamento_servicos on agendamento_servicos.agendamento=agendamento.codigo
 	inner join produtos on produtos.codigo=agendamento_servicos.servico
 	inner join usuarios on usuarios.codigo=agendamento_servicos.profissional
-	where agendamento.sistema='".$_SESSION['sistema']."' and agendamento_servicos.status=0 ORDER BY agendamento.codigo desc";
+	where agendamento.sistema='".$_SESSION['sistema']."' and agendamento_servicos.status=0 $whe ORDER BY agendamento.codigo desc";
 	$RES = mysqli_query($db,$SQL);
 	while($row = mysqli_fetch_array($RES))
 	{
@@ -918,6 +929,9 @@ if(@$inputb['load'] == 1)
 	}
 	
 	echo '</div>';
+	
+	}
+	
 }
 else if(@$inputb['load'] == 2)
 {
