@@ -256,9 +256,7 @@ if(isset($codigo))
 								<div class="form-group col-md-3 m-t-20"><label>Tipo :</label>
 								<select name="tipo" id="tipo" class="form-control" style="width: 100%; height:36px;">
                                     <option value="">Selecionar Tipo</option>
-                                       <option value="1" <? if(1 == $tipo){ echo "selected"; } ?>>Normal</option>
-									   <option value="2" <? if(2 == $tipo){ echo "selected"; } ?>>Profissional</option>
-									   <option value="3" <? if(3 == $tipo){ echo "selected"; } ?>>Vendas</option>
+                                       <option value="1" <? if(1 == $tipo){ echo "selected"; } ?>>Motorista</option>
 									   <option value="4" <? if(4 == $tipo){ echo "selected"; } ?>>Administrador</option>
                                   </select>
 								 </div>
