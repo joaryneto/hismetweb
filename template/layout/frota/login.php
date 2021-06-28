@@ -51,7 +51,7 @@
                 <div class="row h-100 h-sm-auto">
                     <div class="col-12 col-md-8 col-lg-5 col-xl-4 mx-auto align-self-center text-center">
                         <div class="loader-logo">
-                            <img style="height:50px" src="<? echo $_SESSION['template'];?>/images/logo.png" alt="" class="header-logo">
+                            <img style="height:200px" src="<? echo $_SESSION['template'];?>/images/logo.png" alt="" class="header-logo">
                         <h4><br><small class="text-mute"></small></h4>
                         </div>
                         <br>
