@@ -1,3 +1,9 @@
+<?
+function isMobile() 
+{
+    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -80,6 +86,9 @@
 						<div id="load"></div>
                         <div class="mb-4">
                             <a href="#" class=" btn btn-lg btn-default default-shadow btn-block" onclick="logar();">Logar <span class="ml-2 icon arrow_right"></span></a>
+							<? if(isMobile()){?>
+							<a href="#" class=" btn btn-lg btn-default default-shadow btn-block " id="btninstall">Instalar Aplicativo<span class="ml-2 icon arrow_right"></span></a>
+							<? } ?>
                         </div>
                         <div class="mb-4">
                         </div>
