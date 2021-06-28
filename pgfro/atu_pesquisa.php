@@ -650,7 +650,7 @@ else if(@$inputb['ap'] == 8)
     mysqli_query($db,$SQL);
 	
 	$descricao = "Agendamento Cancelado";
-	$SQL2 = "INSERT INTO logs(sistema,evento,tipo) VALUES('".$_SESSION['sistema']."','".$descricao."','1');";
+	$SQL2 = "INSERT INTO logs(sistema,evento,usuario,tipo) VALUES('".$_SESSION['sistema']."','".$descricao."','".$_SESSION['usuario']."','1');";
     mysqli_query($db,$SQL2);
 	
     $y = 0;
