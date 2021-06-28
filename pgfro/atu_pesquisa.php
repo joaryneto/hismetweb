@@ -132,7 +132,7 @@ if(@$inputb['ap'] == 1)
 		
 		if(profissional == "")
 		{
-			swal('Atenção', 'Selecione um Profissional.');
+			swal('Atenção', 'Selecione um Motorista.');
 		}
 		else if(data == "")
 		{
@@ -144,7 +144,7 @@ if(@$inputb['ap'] == 1)
 		}
 		else if(servico == "")
 		{
-			swal('Atenção', 'Selecione um serviço.');
+			swal('Atenção', 'Selecione um Carro.');
 		}
 		else
 		{
@@ -175,7 +175,7 @@ if(@$inputb['ap'] == 1)
 		
 		if(profissional == null)
 		{
-			swal('Atenção', 'Selecione um profissional.');
+			swal('Atenção', 'Selecione um Motorista.');
 		}
 		else if(dataagenda == "")
 		{
@@ -193,7 +193,7 @@ if(@$inputb['ap'] == 1)
 		
 		if(profissional == null)
 		{
-			swal('Atenção', 'Selecione um profissional.');
+			swal('Atenção', 'Selecione um Motorista.');
 		}
 		else
 		{
@@ -207,7 +207,7 @@ if(@$inputb['ap'] == 1)
 		
 		if(qtd == 0)
 		{
-			swal('Atenção','Agende um Serviço: Escolha o Profissional -> Data do Agendamento -> Horario e Serviço. Após ter escolhido Clique no Botão Mais(+) depois em Proximo para escolher o Cliente.');
+			swal('Atenção','Agende um Crro: Escolha o Motorista -> Data do Agendamento -> Horario e Carro. Após ter escolhido Clique no Botão Mais(+) depois em Proximo para escolher o Cliente.');
 		}
 		else
 		{
