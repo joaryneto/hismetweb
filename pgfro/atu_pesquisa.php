@@ -148,7 +148,8 @@ if(@$inputb['ap'] == 1)
 		}
 		else
 		{
-		   requestPage2('?br=atu_pesquisa&codigo='+ codigo +'&servico='+ servico +'&profissional='+ profissional +'&data='+ data +'&hora='+ hora +'&obs='+ obs +'&addservico=true&load=2','listaservicos','GET');
+		   $('#modalap').modal('hide');
+		   requestPage2('?br=atu_pesquisa&codigo='+ codigo +'&servico='+ servico +'&profissional='+ profissional +'&data='+ data +'&hora='+ hora +'&obs='+ obs +'&addservico=true&load=1','load','GET');
 		}
 	}
 	
@@ -158,7 +159,11 @@ if(@$inputb['ap'] == 1)
 		format: 'dd/mm/yyyy',
  		autoclose: true,
  		todayHighlight: true,
-		language: "pt-BR",
+		        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
 		orientation: "bottom left",
 		startDate: "-0d"
 	});
@@ -288,7 +293,7 @@ if(@$inputb['ap'] == 1)
 	<input name="profissional" id="profissional" type="hidden" placeholder="Data" value="<? echo $_SESSION['usuario'];?>" autocomplete="off" class="form-control  form-control-lg data dataagenda"/>
 	<?}?>
 	<div class="form-group col-md-12 m-t-20">
-    <input name="dataagenda" id="dataagenda" type="text" onchange="phorario(this.value);" <? if($_SESSION['permissao'] == 4 ){ ?> disabled <?}?> placeholder="Data" value="" autocomplete="off" class="form-control  form-control-lg data dataagenda"/>
+    <input name="dataagenda" id="dataagenda" type="text" onchange="phorario(this.value);" <? if($_SESSION['permissao'] == 4 ){ ?> disabled <?}?> placeholder="Data" value="" autocomplete="off" class="form-control  form-control-lg data dataagenda" readonly />
 	<input name="qtd" id="qtd" value="" type="hidden" value="0" autocomplete="off" class="form-control  form-control-lg" required="required"/>
 	</div>
 	<div class="form-group col-md-12 m-t-20">
@@ -346,16 +351,8 @@ if(@$inputb['ap'] == 1)
 	 </div> 
 	 </div>
 	 <div class="form-group pmd-textfield pmd-textfield-floating-label">
-	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-primary" href="javascript: void(0);" onclick="servico_add(<?=$rows['codigo'];?>);"><i class="material-icons">add_shopping_cart</i> Adicionar</a>
+	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-primary" href="javascript: void(0);" onclick="servico_add(<?=$rows['codigo'];?>);">Concluir</a>
 	 </div>
-	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-warning" href="javascript: void(0);" onclick="sv_itens();">Pré-Agendados</a>
-	 <h2 id="s_total">
-	 <span style="color: green;">
-	 </span></h2>
-	 <br>
-	 <div class="form-group pmd-textfield pmd-textfield-floating-label">
-	    <a class="btn pmd-btn-outline pmd-ripple-effect btn-primary" href="javascript: void(0);" onclick="cp_proximo(<?=$_SESSION['agendamento'];?>);"><i class="material-icons">person_add</i>  Concluir</a>
-    </div>
 <script>
 function sv_itens()
 {
@@ -517,6 +514,7 @@ else if(@$inputb['ap'] == 5)
 			autoclose: true,
 			todayHighlight: true,
 			language: "pt-BR",
+			lang: 'pt',
 			orientation: "bottom left",
 			startDate: "-0d"
 	});
@@ -783,6 +781,18 @@ if(@$inputb['addservico'] == "true")
 		$SQL = "INSERT into agendamento_servicos(sistema,agendamento,servico,profissional,data,hora,obs) values('".$_SESSION['sistema']."','".$codigo."','".$servico."','".$profissional."','".revertedata($data)."','".$hora."','".$obs."');";
 		mysqli_query($db,$SQL);
 	}
+	
+	print('<script>
+               swal({   
+            title: "Atenção",   
+            text: "Carro Agendado com sucesso.",   
+            timer: 2000,   
+            showConfirmButton: false 
+        });
+        </script>');
+		
+	$SQL = "UPDATE agendamento SET status=1 where sistema='".$_SESSION['sistema']."' and codigo='".$_SESSION['agendamento']."'";
+	mysqli_query($db,$SQL);
 	
 	$SQL = "SELECT count(produtos.codigo) as qtd,sum(produtos.preco) as total FROM agendamento 
 	inner join agendamento_servicos on agendamento_servicos.agendamento=agendamento.codigo
