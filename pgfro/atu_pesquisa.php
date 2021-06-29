@@ -890,7 +890,7 @@ if(@$inputb['load'] == 1)
 	$pesquisa = @$inputb['pesquisa'];
 	$data = @revertedata($inputb['data']);
 	
-	
+	$_SESSION['dataagenda'] = $data;
 		
 	if(isset($pesquisa))
     {
