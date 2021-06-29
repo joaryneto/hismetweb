@@ -121,6 +121,26 @@ if(@$inputb['ap'] == 1)
 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 </div>
 <div class="modal-body">
+    <script type="text/javascript">
+        // add row
+        $("#addRow").click(function () {
+            var html = '';
+            html += '<div id="inputFormRow">';
+            html += '<div class="input-group mb-3">';
+            html += '<input type="text" name="title[]" class="form-control m-input dataagenda" placeholder="Enter title" autocomplete="off">';
+            html += '<div class="input-group-append">';
+            html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
+            html += '</div>';
+            html += '</div>';
+
+            $('#newRow').append(html);
+        });
+
+        // remove row
+        $(document).on('click', '#removeRow', function () {
+            $(this).closest('#inputFormRow').remove();
+        });
+    </script>
 	<script>
 	function servico_add(codigo)
     {
@@ -155,7 +175,7 @@ if(@$inputb['ap'] == 1)
 	
 	$('.data').mask('00/00/0000');
 	
-	jQuery('#dataagenda').datepicker({
+	jQuery('.dataagenda').datepicker({
 		format: 'dd/mm/yyyy',
  		autoclose: true,
  		todayHighlight: true,
@@ -296,6 +316,15 @@ if(@$inputb['ap'] == 1)
     <input name="dataagenda" id="dataagenda" type="text" onchange="phorario(this.value);" <? if($_SESSION['permissao'] == 4 ){ ?> disabled <?}?> placeholder="Data" value="" autocomplete="off" class="form-control  form-control-lg data dataagenda" readonly />
 	<input name="qtd" id="qtd" value="" type="hidden" value="0" autocomplete="off" class="form-control  form-control-lg" required="required"/>
 	</div>
+	
+	<!--
+	<div id="newRow" class="form-group col-md-12 m-t-20"></div>
+	<div class="form-group col-md-12 m-t-20">
+	<div class="form-group pmd-textfield pmd-textfield-floating-label">
+	 <a class="btn pmd-btn-outline pmd-ripple-effect btn-primary" id="addRow">Concluir</a>
+	 </div> </div>-->
+	 
+	 
 	<div class="form-group col-md-12 m-t-20">
 	<select name="hora" id="hora" class="form-control hora" placeholder="Escolha um serviço" disabled autocomplete="off">
 	<option value="">Escolher Horario</option>
