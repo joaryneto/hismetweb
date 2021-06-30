@@ -1,3 +1,9 @@
+<?
+function isMobile() 
+{
+    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -17,7 +23,7 @@
             </div>
             <div class="col-12 align-self-center text-center">
                 <div class="loader-logo">
-                    <div class="logo">1<span>UX</span><span>UI</span>
+                    <div class="logo"><span></span><span></span>
                         <div class="loader-roller">
                             <div></div>
                             <div></div>
@@ -29,16 +35,14 @@
                             <div></div>
                         </div>
                     </div>
-                    <h4 class="logo-text"><span>OneUIUX</span><small>Mobile HTML</small></h4>
                 </div>
             </div>
             <div class="col-12 align-self-end text-center">
-                <p class="my-5">Please wait<br><small class="text-mute">A world of great designs is loading...</small></p>
+                <p class="my-5">Por favor, aguarde<br><small class="text-mute">Um mundo está carregando ...</small></p>
             </div>
         </div>
     </div>
     <!-- Page laoder ends -->
-
 
 
     <!-- Begin page content -->
@@ -52,7 +56,7 @@
                 <div class="row h-100 h-sm-auto">
                     <div class="col-12 col-md-8 col-lg-5 col-xl-4 mx-auto align-self-center text-center">
                         <div class="loader-logo">
-                            <img style="height:50px" src="<? echo $_SESSION['template'];?>/images/logo.png" alt="" class="header-logo">
+                            <img style="height:200px" src="<? echo $_SESSION['template'];?>/images/logo.png" alt="" class="header-logo">
                         <h4><br><small class="text-mute"></small></h4>
                         </div>
                         <br>
@@ -66,9 +70,9 @@
                         </div>
                         <div class="form-group">
                             <label for="inputPassword" class="sr-only">Senha</label>
-                            <input type="password" id="inputPassword" class="form-control form-control-lg border-0" placeholder="Sua senha" required="">
+                            <input type="password" id="inputPassword" class="form-control form-control-lg border-0" onkeypress="if (event.keyCode === 13) {logar();}" placeholder="Sua senha" required="">
                         </div>
-
+                        
                         <div class="my-3 row">
                             <div class="col-6 col-md py-1 text-left">
                                 <div class="custom-control custom-checkbox">
@@ -77,15 +81,16 @@
                                 </div>
                             </div>
                             <div class="col-6 col-md py-1 text-right text-md-right">
-                                <a href="forgotpassword.html" class="text-white">Forgot Password?</a>
                             </div>
                         </div>
 						<div id="load"></div>
                         <div class="mb-4">
-                            <a href="#" Onclick="logar();" class=" btn btn-lg btn-default default-shadow btn-block">Logar <span class="ml-2 icon arrow_right"></span></a>
+                            <a href="#" class=" btn btn-lg btn-default default-shadow btn-block" onclick="logar();">Logar <span class="ml-2 icon arrow_right"></span></a>
+							<? if(isMobile()){?>
+							<a id="btninstall" href="javascript:void(0);" class=" btn btn-lg btn-default default-shadow btn-block ">Instalar Aplicativo<span class="ml-2 icon arrow_right"></span></a>
+							<? } ?>
                         </div>
                         <div class="mb-4">
-                            <p>Do not have account yet?<br>Please <a href="register.html" class="text-white">Sign up</a> here.</p>
                         </div>
                     </div>
                 </div>

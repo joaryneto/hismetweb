@@ -141,6 +141,7 @@ if(@$inputb['ap'] == 1)
             $(this).closest('#inputFormRow').remove();
         });
     </script>
+	
 	<script>
 	function servico_add(codigo)
     {
@@ -168,7 +169,6 @@ if(@$inputb['ap'] == 1)
 		}
 		else
 		{
-		   $('#modalap').modal('hide');
 		   requestPage2('?br=atu_pesquisa&codigo='+ codigo +'&servico='+ servico +'&profissional='+ profissional +'&data='+ data +'&hora='+ hora +'&obs='+ obs +'&addservico=true&load=1','load','GET');
 		}
 	}
@@ -327,7 +327,7 @@ if(@$inputb['ap'] == 1)
 	 
 	<div class="form-group col-md-12 m-t-20">
 	<select name="hora" id="hora" class="form-control hora" placeholder="Escolha um serviço" disabled autocomplete="off">
-	<option value="">Escolher Horario</option>
+	<option value="">Escolher Periodo</option>
 	</select>
 	</div>
 	<div class="form-group col-md-12 m-t-20">
@@ -788,9 +788,32 @@ if(@$inputb['addservico'] == "true")
 	$servico = $inputb['servico'];
 	$profissional = $inputb['profissional'];
 	$codigo = $inputb['codigo'];
-	$data = $inputb['data'];
+	$data = revertedata($inputb['data']);
 	$hora = $inputb['hora'];
 	$obs = $inputb['obs'];
+	
+	$x = 0;
+	$SQL = "SELECT usuarios.nome FROM agendamento_servicos inner join usuarios on usuarios.codigo=agendamento_servicos.profissional where agendamento_servicos.data='".$data."' and agendamento_servicos.periodo='".$hora."'";
+	$RES = mysqli_query($db,$SQL);
+	while($rowx = mysqli_fetch_array($RES))
+	{
+		$nome = $rowx['nome'];
+		$x = 1;
+	}
+	
+	if($x == 1)
+	{
+		print('<script>
+               swal({   
+            title: "Atenção",   
+            text: "Carro já está Reservado para '.$nome.' escolha outro periodo ou data.",      
+            showConfirmButton: true 
+        });
+        </script>');
+	}
+	else
+	{
+	
 	
 	if($inputb['servico'] == "")
 	{
@@ -798,19 +821,11 @@ if(@$inputb['addservico'] == "true")
 	}
 	else
 	{
-		$SQL = "INSERT into agendamento_servicos(sistema,agendamento,servico,profissional,data,hora,obs) values('".$_SESSION['sistema']."','".$codigo."','".$servico."','".$profissional."','".revertedata($data)."','".$hora."','".$obs."');";
+		$SQL = "INSERT into agendamento_servicos(sistema,agendamento,servico,profissional,data,periodo,obs) values('".$_SESSION['sistema']."','".$codigo."','".$servico."','".$profissional."','".$data."','".$hora."','".$obs."');";
 		mysqli_query($db,$SQL);
 	}
 	
-	print('<script>
-               swal({   
-            title: "Atenção",   
-            text: "Carro Agendado com sucesso.",   
-            timer: 2000,   
-            showConfirmButton: false 
-        });
-        </script>');
-		
+	
 	$SQL = "UPDATE agendamento SET status=1 where sistema='".$_SESSION['sistema']."' and codigo='".$_SESSION['agendamento']."'";
 	mysqli_query($db,$SQL);
 	
@@ -829,6 +844,20 @@ if(@$inputb['addservico'] == "true")
 	
 	print('<script> document.getElementById("sv_total").innerHTML = "<span style=\'color: green;\'>Valor Total: R$ '.number_format($row['total'],2,",",".").'</span>";</script>');
 	print('<script> document.getElementById("sv_qtd").innerHTML = "'.$row['qtd'].'";</script>');
+	
+	
+	print('<script> $("#modalap").modal("hide"); </script>');
+	
+	print('<script>
+               swal({   
+            title: "Atenção",   
+            text: "Carro Agendado com sucesso.",   
+            timer: 2000,   
+            showConfirmButton: false 
+        });
+        </script>');
+		
+	}
 }
 
 if(@$inputb['lhorario'] == "true")
@@ -838,12 +867,12 @@ if(@$inputb['lhorario'] == "true")
 	$servico = @$inputb['servico'];
 	
 	?>
-	<option value="">Escolher Horario</option>
+	<option value="">Escolher Periodo</option>
 		<?
 		
 		$data = revertedata($inputb['data']);
 		
-		$SQL1 = "SELECT horarios.hora FROM horarios ORDER BY horarios.hora asc";
+		$SQL1 = "SELECT horarios.descricao FROM horarios ORDER BY horarios.codigo asc";
 		$RES1 = mysqli_query($db,$SQL1);
 		while($row1 = mysqli_fetch_array($RES1))
 		{
@@ -853,12 +882,12 @@ if(@$inputb['lhorario'] == "true")
 		  
 		  $SQL2 = "SELECT agendamento_servicos.hora,agendamento.nome FROM agendamento 
 		  inner join agendamento_servicos on agendamento_servicos.agendamento=agendamento.codigo 
-		  where agendamento_servicos.sistema='".$_SESSION['sistema']."' and agendamento_servicos.data='".$data."' and agendamento_servicos.servico='".$servico."' and agendamento_servicos.hora='".$row1['hora']."'";
+		  where agendamento_servicos.sistema='".$_SESSION['sistema']."' and agendamento_servicos.data='".$data."' and agendamento_servicos.servico='".$servico."' and agendamento_servicos.periodo='".$row1['descricao']."'";
 		  $RES2 = mysqli_query($db,$SQL2);
 		  while($row2 = mysqli_fetch_array($RES2))
 		  {
 			 $nome = $row2['nome'];
-			 $x = 1;
+			 $x = 0;
 		  }
 		  
 		  if($inputb['hora'] == $row1['hora'])
@@ -872,7 +901,7 @@ if(@$inputb['lhorario'] == "true")
 		  
 		  if($x == 0)
 		  {
-			   echo "<option value='".$row1['hora']."' ".$selectd.">".$row1['hora']."</option>";
+			   echo "<option value='".$row1['descricao']."' ".$selectd.">".$row1['descricao']."</option>";
 		  }
 		  else
 		  {
@@ -936,12 +965,12 @@ if(@$inputb['load'] == 1)
 	
 	echo '<div class="container mb-4">';
 	
-	$SQL = "SELECT usuarios.nome as username,produtos.descricao,agendamento.codigo,agendamento_servicos.obs,agendamento_servicos.codigo as codservico,agendamento.cliente,clientes.nome, clientes.celular,agendamento_servicos.data,agendamento_servicos.hora,agendamento_servicos.profissional FROM agendamento 
+	$SQL = "SELECT agendamento.usuario, usuarios.nome as username,produtos.descricao,agendamento.codigo,agendamento_servicos.obs,agendamento_servicos.codigo as codservico,agendamento.cliente,clientes.nome, clientes.celular,agendamento_servicos.data,agendamento_servicos.periodo,agendamento_servicos.profissional FROM agendamento 
     left join clientes on clientes.codigo=agendamento.cliente
 	inner join agendamento_servicos on agendamento_servicos.agendamento=agendamento.codigo
 	inner join produtos on produtos.codigo=agendamento_servicos.servico
 	inner join usuarios on usuarios.codigo=agendamento_servicos.profissional
-	where agendamento.sistema='".$_SESSION['sistema']."' and agendamento_servicos.status=0 $whe $whe2 ORDER BY agendamento.codigo desc";
+	where agendamento.sistema='".$_SESSION['sistema']."' and agendamento_servicos.status=0 $whe ORDER BY agendamento.codigo desc";
 	$RES = mysqli_query($db,$SQL);
 	while($row = mysqli_fetch_array($RES))
 	{
@@ -967,10 +996,12 @@ if(@$inputb['load'] == 1)
                                 </div>
                                 <div class="col align-self-center">
                                     <p class="mb-0">Dia: <? echo formatodata($row['data']);?></p>
-									<p class="mb-0">Hora: <? echo formatohora($row['hora']);?>hs</p>
+									<p class="mb-0">Periodo: <? echo $row['periodo'];?></p>
                                 </div>
                                 <div class="col-auto align-self-center">
+								<? if($row['usuario'] == $_SESSION['usuario']){ ?>
                                     <a class="btn btn-sm btn-outline-default" onclick="agendaex('<? echo $row['codservico'];?>');">Cancelar</a>
+								<? } ?>
                                 </div>
                             </div>
                         </div>
