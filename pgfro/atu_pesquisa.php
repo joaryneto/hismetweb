@@ -965,7 +965,7 @@ if(@$inputb['load'] == 1)
 	
 	echo '<div class="container mb-4">';
 	
-	$SQL = "SELECT agendamento.usuario, usuarios.nome as username,produtos.descricao,agendamento.codigo,agendamento_servicos.obs,agendamento_servicos.codigo as codservico,agendamento.cliente,clientes.nome, clientes.celular,agendamento_servicos.data,agendamento_servicos.periodo,agendamento_servicos.profissional FROM agendamento 
+	$SQL = "SELECT agendamento_servicos.profissional, usuarios.nome as username,produtos.descricao,agendamento.codigo,agendamento_servicos.obs,agendamento_servicos.codigo as codservico,agendamento.cliente,clientes.nome, clientes.celular,agendamento_servicos.data,agendamento_servicos.periodo,agendamento_servicos.profissional FROM agendamento 
     left join clientes on clientes.codigo=agendamento.cliente
 	inner join agendamento_servicos on agendamento_servicos.agendamento=agendamento.codigo
 	inner join produtos on produtos.codigo=agendamento_servicos.servico
@@ -999,7 +999,7 @@ if(@$inputb['load'] == 1)
 									<p class="mb-0">Periodo: <? echo $row['periodo'];?></p>
                                 </div>
                                 <div class="col-auto align-self-center">
-								<? if($row['usuario'] == $_SESSION['usuario']){ ?>
+								<? if($row['profissional'] == $_SESSION['usuario']){ ?>
                                     <a class="btn btn-sm btn-outline-default" onclick="agendaex('<? echo $row['codservico'];?>');">Cancelar</a>
 								<? } ?>
                                 </div>
