@@ -793,7 +793,7 @@ if(@$inputb['addservico'] == "true")
 	$obs = $inputb['obs'];
 	
 	$x = 0;
-	$SQL = "SELECT usuarios.nome FROM agendamento_servicos inner join usuarios on usuarios.codigo=agendamento_servicos.profissional where agendamento_servicos.data='".$data."' and agendamento_servicos.periodo='".$hora."'";
+	$SQL = "SELECT usuarios.nome FROM agendamento_servicos inner join usuarios on usuarios.codigo=agendamento_servicos.profissional where agendamento_servicos.servico='".$servico."' and agendamento_servicos.data='".$data."' and agendamento_servicos.periodo='".$hora."'";
 	$RES = mysqli_query($db,$SQL);
 	while($rowx = mysqli_fetch_array($RES))
 	{
