@@ -707,7 +707,7 @@ else if(@$inputb['ap'] == 8)
   swal({   
             title: "Atenção",   
             text: "Cancelado com sucesso.",   
-            timer: 3000,   
+            timer: 2000,   
             showConfirmButton: false 
         });
   </script>
