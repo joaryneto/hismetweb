@@ -806,7 +806,8 @@ if(@$inputb['addservico'] == "true")
 		print('<script>
                swal({   
             title: "Atenção",   
-            text: "Carro já está Reservado para '.$nome.' escolha outro periodo ou data.",      
+            text: "Carro já está Reservado para <b>'.$nome.'</b> escolha outro periodo ou data.",
+			html: "<b></b>",
             showConfirmButton: true 
         });
         </script>');
