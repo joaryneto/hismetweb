@@ -707,7 +707,7 @@ else if(@$inputb['ap'] == 8)
   swal({   
             title: "Atenção",   
             text: "Cancelado com sucesso.",   
-            timer: 2000,   
+            timer: 3000,   
             showConfirmButton: false 
         });
   </script>
@@ -751,15 +751,6 @@ if(@$inputb['novo'] == 1)
       mysqli_query($db,$SQL);
    }
  ?>
- 
-  <script>
-  swal({   
-            title: "Atenção",   
-            text: "Cancelado com sucesso.",   
-            timer: 1000,   
-            showConfirmButton: false 
-        });
-  </script>
  
  <?
 }
@@ -848,8 +839,6 @@ if(@$inputb['lhorario'] == "true")
 	
 	?>
 	<option value="">Escolher Horario</option>
-	<option value="manha">Matutino</option>
-	<option value="tarde">Verpertino</option>
 		<?
 		
 		$data = revertedata($inputb['data']);
@@ -862,28 +851,13 @@ if(@$inputb['lhorario'] == "true")
 		  $x = 0;
 		  $nome = "";
 		  
-		  
-		  if($inputb['data'] == "manha")
-		  {
-			  $whe = "and agendamento_servicos.tipo='1' and agendamento_servicos.data=''";
-		  }
-		  else if($inputb['data'] == "tarde")
-		  {
-			  $whe = "and agendamento_servicos.tipo='2' and agendamento_servicos.data=''";
-		  }
-		  else
-		  {
-			  $whe = "and agendamento_servicos.data='".$data."'"; 
-		  }
-		  
 		  $SQL2 = "SELECT agendamento_servicos.hora,agendamento.nome FROM agendamento 
 		  inner join agendamento_servicos on agendamento_servicos.agendamento=agendamento.codigo 
-		  where agendamento_servicos.sistema='".$_SESSION['sistema']."' and agendamento_servicos.data='".$data."' and agendamento_servicos.servico='".$servico."' $whe";
+		  where agendamento_servicos.sistema='".$_SESSION['sistema']."' and agendamento_servicos.data='".$data."' and agendamento_servicos.servico='".$servico."' and agendamento_servicos.hora='".$row1['hora']."'";
 		  $RES2 = mysqli_query($db,$SQL2);
 		  while($row2 = mysqli_fetch_array($RES2))
 		  {
 			 $nome = $row2['nome'];
-			 $tipo = $row2['tipo'];
 			 $x = 1;
 		  }
 		  
@@ -896,31 +870,15 @@ if(@$inputb['lhorario'] == "true")
 		      $selectd = "";  
 		  }
 		  
-		 
-		  
 		  if($x == 0)
 		  {
-			  echo "<option value='".$row1['hora']."' ".$selectd.">".$row1['hora']."</option>";
+			   echo "<option value='".$row1['hora']."' ".$selectd.">".$row1['hora']."</option>";
 		  }
 		  else
 		  {
 			   //echo "<option value='".$row1['hora']."' ".$selectd.">".$row1['hora']." - ".$nome." </option>";
 		  }
 		}
-		
-		if($tipo == "1")
-		{
-				  echo '<option value="manha">Matutino</option>';
-		}
-		else if($tipo == "2")
-			  {
-				  echo '<option value="tarde">Verpertino</option>';
-			  }
-			  else
-			  {
-				  echo '<option value="manha">Matutino</option>';
-	              echo '<option value="tarde">Verpertino</option>';
-			  }
 
 		?>
 	<?
