@@ -10,7 +10,7 @@ class security {
     function input($str) 
 	{
     	$str2 = $str;
-		$str = preg_replace((new self)->my_Sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$str);
+		$str = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$str);
 		$str = @str_replace(addslashes("'"), "", $str);
 		//$str = @str_replace(addslashes("\""), "", $str);
 		//$str = @str_replace("/[^a-z0-9]+/i", "", $str);
@@ -55,7 +55,7 @@ class security {
 	function strings_invalidas($str) 
 	{
     	$str2 = $str;
-		$str = preg_replace((new self)->my_Sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$str);
+		$str = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$str);
 		$str = @str_replace(addslashes("'"), "", $str);
 		$str = @str_replace(addslashes("\""), "", $str);
 		$str = @str_replace("/[^a-z0-9]+/i", "", $str);
@@ -97,27 +97,10 @@ class security {
 		//echo $str;
 		if($str2 <> $str) 
 		{
-			@security::registrar_tentativa();
+			security::registrar_tentativa();
 		}
 	 return	$str;
    }
-
-   function my_Sql_regcase($str){
-
-	$res = "";
-
-	$chars = str_split($str);
-	foreach($chars as $char){
-		if(preg_match("/[A-Za-z]/", $char)){
-			 $res .= "[".mb_strtoupper($char, 'UTF-8').mb_strtolower($char, 'UTF-8')."]";
-		}else{
-			$res .= $char;
-		}
-	 }
-
-		return $res;
-	}
-
    function ReversoInject( $obj ) 
    {
    $obj = preg_replace("/(from|alter table|select|insert|delete|update|where|drop table|show tables|#|*|--|\\)/i", "", $obj);
@@ -133,14 +116,14 @@ class security {
     $sql = get_magic_quotes_gpc() == 0 ? addslashes($sql) : $sql;
     $sql = trim($sql);
     $sql = strip_tags($sql);
-    $sql = mysqli_escape_string($sql);
+    $sql = mysql_escape_string($sql);
    return preg_replace("@(–|#|*|;|=)@s", "", $sql);
    }
    
    function registrar_tentativa() 
    {
 
-        /*if(!$db4 = mysqli_connect("mysql669.umbler.com:41890", "sistemasl", "I_Jt{4|p6u"))
+        if(!$db4 = mysqli_connect("mysql669.umbler.com:41890", "sistemasl", "I_Jt{4|p6u"))
         {
             //print("<script>window.alert('Não conectou com banco...')</script>");
         	//echo "Não conectou com banco 3";
@@ -167,7 +150,6 @@ class security {
 		
 		$SQL = "INSERT security_logs(sistema,usuario,login,ip,ip_reverso,data,navegador,pagina,metodo) values('".$_SESSION['sistema']."','".$_SESSION['usuario']."','{$ses}','{$ip}','{$host}','{$data}','{$navegador}','{$solicitada}','{$metodo}')";
 		mysqli_query($db4,$SQL);
-		*/
 		
 		//echo "<td> Aceito apenas letras e numeros.</td>";
 		//exit();
@@ -181,11 +163,11 @@ class security {
 		if (is_array($str)) {
         	foreach($str as	$id	=> $value) 
 		{
-            $str[$id] = @security::checar_strings($value);
+            $str[$id] = security::checar_strings($value);
         }
         } 
 	     else
-        $str = @security::strings_invalidas($str);
+        $str = security::strings_invalidas($str);
 		return $str;
 	}
 }	
@@ -195,7 +177,7 @@ class security {
 $metodo = array_keys($_GET);
 $i=0;
 while($i < count($metodo)) {
-    $_GET[ $metodo[$i]] = @security::checar_strings($_GET[$metodo[$i]]);
+    $_GET[ $metodo[$i]] = security::checar_strings($_GET[$metodo[$i]]);
     $i++;
 }
 
@@ -207,7 +189,7 @@ $metodo = array_keys($_POST);
 $i=0;
 while($i < count($metodo))
 {
-    $_POST[$metodo[$i]] = @security::checar_strings($_POST[$metodo[$i]]);
+    $_POST[$metodo[$i]] = security::checar_strings($_POST[$metodo[$i]]);
     $i++;
 }
 ?>

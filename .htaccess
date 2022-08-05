@@ -1,4 +1,0 @@
-RewriteCond %{SERVER_PORT} ^443$ [OR]
-RewriteCond %{HTTPS} On
-RewriteCond %{HTTP_HOST} ^(www.)?hismet\.com.br$ [NC]
-RewriteRule ^(.*)$ http://www.hismet.com.br/$1 [L,R=301]

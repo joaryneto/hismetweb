@@ -13,7 +13,7 @@ if(@$_SERVER['SERVER_NAME'] == "sistema.site" or $_SERVER['SERVER_NAME'] == "app
 	$_SESSION['template'] = "template/layout/medicina/";
 	//print('<script> localStorage.setItem("sistema", "'.$sistema.'"); </script>');
 }
-else if(@$_SERVER['SERVER_NAME'] == "hismet.local"  or @$_SERVER['SERVER_NAME'] == "sistema.web" or $_SERVER['SERVER_NAME'] == "hismet.com.br" or $_SERVER['SERVER_NAME'] == "www.hismet.com.br" or $_SERVER['SERVER_NAME'] == "web.hismet.com.br")
+else if(@$_SERVER['SERVER_NAME'] == "sistema.web" or $_SERVER['SERVER_NAME'] == "hismet.com.br" or $_SERVER['SERVER_NAME'] == "www.hismet.com.br")
 {
 	$_SESSION['nosistema'] = "".$_SERVER['SERVER_NAME']."/";
 	$_SESSION['nomesoft'] = "Hismet";

@@ -163,6 +163,8 @@
 				  
                 </ul><!--<a href="#" class="btn">Leia mais</a>--
               </div>-->
+              
+              <!-- DIV DE HORARIO DE ATENDIMENTO-->
               <div class="grid_4">
                 <div class="info-box">
                   <h2 class="fa-clock-o">Atendimento</h2>
@@ -174,12 +176,25 @@
                   </dl>
                   <hr>
                   <h3></h3>
-                  <dl>
-                    <dt></dt>
-                    <dd></dd>
-                  </dl>
                 </div>
               </div>
+              <!-- DIV DE HORARIO DE ATENDIMENTO-->
+             
+              <!-- DIV DE XML ESOCIAL-->
+              <div class="grid_4">
+                <div class="info-box"  style="background-color:#39F">
+                  <h2 class="fa-cloud-download">eSocial</h2>
+                  <hr>
+                  <h3><a href="https://sistema.hismet.com.br/consultarxml.php" target="_blank">Clique aqui para acessar os arquivos.</a></h3>
+                  <dl>
+                    <dt>Para empresa conveniada, fazer o acesso pelo Hismet Online.</dt>
+                  </dl>
+                  <hr>
+                  <h3></h3>
+                </div>
+              </div>
+              <!-- DIV DE XML ESOCIAL-->             
+                            
             </div>
           </div>
         </section>
