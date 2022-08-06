@@ -34,7 +34,7 @@
       "type": "image/png",
 	  "purpose": "maskable"
     }],
-  "start_url": "https://hismet.local/",
+  "start_url": "https://hismet.com.br/",
   "display": "standalone",
   "background_color": "#FFFFFF",
   "theme_color": "#FFFFFF"
