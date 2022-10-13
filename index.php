@@ -4,6 +4,10 @@ ob_start();
 
 session_start();
 
+error_reporting(1);
+ini_set('display_errors', 1);
+ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
+
 require_once("./load/load.php");
 
     if($_SESSION['tipo'] == 1)
