@@ -13,7 +13,7 @@
 if($_SESSION['tipo'] == 1)
 {
 	
-if(!$db = mysqli_connect("localhost", "sistemaonline", "@Hismet@2324"))
+if(!$db = mysqli_connect("mysql741.umbler.com:41890", "sistemaonline", "w9|2-SBgLs9"))
 {
     //print("<script>window.alert('Não conectou com banco...')</script>");
 	//echo "Não conectou com banco 1";
@@ -29,7 +29,7 @@ if(!$db = mysqli_connect("localhost", "sistemaonline", "@Hismet@2324"))
 else if($_SESSION['tipo'] == 2)
 {	
 
-if(!$db = mysqli_connect("localhost", "sistemaonline", "@Hismet@2324"))
+if(!$db = mysqli_connect("mysql741.umbler.com:41890", "sistemaonline", "w9|2-SBgLs9"))
 {
     //print("<script>window.alert('Não conectou com banco...')</script>");
 	//echo "Não conectou com banco 3";
