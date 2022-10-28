@@ -10,7 +10,7 @@ class security {
     function input($str) 
 	{
     	$str2 = $str;
-		$str = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$str);
+		$str = preg_replace(preg_quote("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$str);
 		$str = @str_replace(addslashes("'"), "", $str);
 		//$str = @str_replace(addslashes("\""), "", $str);
 		//$str = @str_replace("/[^a-z0-9]+/i", "", $str);
@@ -55,7 +55,7 @@ class security {
 	function strings_invalidas($str) 
 	{
     	$str2 = $str;
-		$str = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$str);
+		$str = preg_replace(preg_quote("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$str);
 		$str = @str_replace(addslashes("'"), "", $str);
 		$str = @str_replace(addslashes("\""), "", $str);
 		$str = @str_replace("/[^a-z0-9]+/i", "", $str);
@@ -116,7 +116,7 @@ class security {
     $sql = get_magic_quotes_gpc() == 0 ? addslashes($sql) : $sql;
     $sql = trim($sql);
     $sql = strip_tags($sql);
-    $sql = mysql_escape_string($sql);
+    $sql = mysqli_escape_string($sql);
    return preg_replace("@(–|#|*|;|=)@s", "", $sql);
    }
    
