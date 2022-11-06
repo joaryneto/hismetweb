@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="md">
 <head>
-<title>ADV</title>
+<title>Hismet - Higiene - Segurança e Medicina do Trabalho</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
 
