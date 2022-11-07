@@ -23,7 +23,7 @@
                 <div class="fa-user"></div>
                 <h3>HISMET ONLINE</h3>
                 <p>Acesso ao nosso Sistema WEB.</p>
-				<form action="http://sistema.hismet.com.br/verifica_senha.php" target="_brank" method="post" id="requisicao" name="requisicao">
+				<form action="https://sistema.hismet.com.br/verifica_senha.php" target="_brank" method="post" id="requisicao" name="requisicao">
             <div class="input-group">
               <input class="form-control" type="text" name="login" style="width:90%" placeholder="Email" required>
 			  <input class="form-control" type="password" name="senha" style="width:90%" placeholder="Senha" required>
@@ -42,7 +42,7 @@
                 <div class="fa-user-md"></div>
                   <h3>Gerar guia </h3>
 				  <p>Solicitar guia de exames não conveniadas.</p><a href="#"></a>
-                  <form action="http://sistema.hismet.com.br/avulso/index.php" method="post" id="requisicao" name="requisicao">
+                  <form action="https://sistema.hismet.com.br/avulso/index.php" method="post" id="requisicao" name="requisicao">
             <div class="input-group">
               <input class="form-control" type="text" name="cpf" style="width:90%" placeholder="CNPJ / CPF" required>
 			  <input name="enviar" type="submit" style="margin-top:20px" class="btn btn-primary" value="Próximo passo">
