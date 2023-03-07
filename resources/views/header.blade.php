@@ -33,6 +33,9 @@
                 </li>
                   <li><a href="/contato/">Contato</a>
                 </li>
+                </li>
+                  <li><a href="https://sistema.hismet.com.br/resultado/" target="_blank" style="color: #FB1220">Resultado de exames</a>
+                </li>                  
               </ul>
             </nav>
           </div>
