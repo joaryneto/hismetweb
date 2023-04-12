@@ -16,14 +16,6 @@
                     <div class="icon2 fa-map-marker"></div>
                   </div>
                   <div class="box_cnt__no-flow">
-                    <address><b>FILIAL:</b> Rua J, Quadra APO, lotes 25, 26, 27. - CEP: 78.098-410<br/> Distrito Industrial - Cuiabá – MT </address>
-                  </div>
-                </div>
-				<div class="box">
-                  <div class="box_aside">
-                    <div class="icon2 fa-map-marker"></div>
-                  </div>
-                  <div class="box_cnt__no-flow">
                     <address><b>FILIAL:</b> Av. Filinto Muller, n° 911 - CEP: 78110-300 <br/> Centro - Várzea Grande – MT</address>
                   </div>
                 </div>
@@ -39,19 +31,13 @@
                   <div class="box_aside">
                     <div class="icon2 fa-phone"></div>
                   </div>
-                  <div class="box_cnt__no-flow"><a href="callto:#">Fone/Fax: (65) 3321-7051 </a></div>
+                  <div class="box_cnt__no-flow"><a href="callto:#">Fone: (65) 3321-7051 </a></div>
                 </div>
                 <div class="box">
                   <div class="box_aside">
-                    <div class="icon2 fa-fax"></div>
+                    <div class="icon2 fa-phone"></div>
                   </div>
-                  <div class="box_cnt__no-flow"><a href="callto:#">Fone/Fax: (65) 3667-0494</a></div>
-                </div>
-				<div class="box">
-                  <div class="box_aside">
-                    <div class="icon2 fa-fax"></div>
-                  </div>
-                  <div class="box_cnt__no-flow"><a href="callto:#">Fone/Fax: (65) 3029-1088 / 3029-1085</a></div>
+                  <div class="box_cnt__no-flow"><a href="callto:#">Whats: (65) 3055-5913</a></div>
                 </div>
               </li>
               <li class="grid_4">
@@ -74,7 +60,7 @@
 <footer>
     <section>
         <div class="container">
-        <div class="copyright"><a href="http://www.ectecnologia.com.br" target="_brank">EC TECNOLOGIA.COM.BR</a> © <span id="copyright-year"></span>.&nbsp;&nbsp;Politica de Privacidade 
+        <div class="copyright"><a href="http://quer.app" target="_brank">QUER.APP</a> © <span id="copyright-year"></span>.&nbsp;&nbsp;Politica de Privacidade
         </div>
         </div>
     </section>

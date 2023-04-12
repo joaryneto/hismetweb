@@ -24,7 +24,7 @@ Route::get('/verifyy', function () {
 */
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
-{   
+{
     /**
      * Home Routes
     */
@@ -33,6 +33,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::get('/contato/', function () {
         return view('pages.contato');
     });
+    Route::post('/contato/enviar', 'HomeController@enviarEmail')->name('enviar.email');
+
     Route::get('/links/', function () {
         return view('pages.links');
     });

@@ -1,9 +1,11 @@
+@extends('home')
+@section('content')
 <section class="well1 ins2 mobile-center">
           <div class="container">
             <h2>Fale Conosco</h2>
 
 <div class="row">
-  <div class="grid_3" style="font-family: Arial, Helvetica, sans-serif;text-align: justify;"> 
+  <div class="grid_3" style="font-family: Arial, Helvetica, sans-serif;text-align: justify;">
 <img src="images/img_fale_conosco.jpg" width="206" height="146"><br>
       <br>
       <strong>Fone:</strong><br>
@@ -60,8 +62,9 @@ function checar_cadastro(form){
 	   return (true);
 		}
       </script>
-	<form action="index.php?url=trabalhe_conosco_envia" method="post" enctype="multipart/form-data" name="form" id="form" onsubmit="return checar_cadastro(this)">
+	<form action="{{ route('enviar.email') }}" method="post" enctype="multipart/form-data" name="form" id="form" onsubmit="return checar_cadastro(this)">
     Entre em contato conosco por telefone ou <br>envie sua mensagem pelo formulário abaixo:
+    @csrf
     <input name="Nome" placeholder="Name" type="text" class="form-control" id="Nome" size="40" maxlength="90">
     <input name="Endereco" placeholder="Endereço" type="text" class="form-control" id="Endereco" size="40" maxlength="120">
     <input name="CEP" placeholder="CEP"  type="text" class="form-control" id="CEP" value="" size="9" maxlength="9">
@@ -98,14 +101,14 @@ function checar_cadastro(form){
             <option value="SE">Sergipe </option>
             <option value="TO">Tocantins </option>
             </select>
-            <input name="Email" placeholder="Seu email"  type="text" class="form-control" id="Email" size="40" maxlength="90">
-            <input name="Telefone" placeholder="Telefone"  type="text" class="form-control" id="Telefone" size="10" maxlength="15">
-            <input name="Celular" placeholder="Celular"  type="text" class="form-control" id="Celular" size="10" maxlength="15">
-            <textarea name="Mensagem" placeholder="Mensagem"  cols="40" rows="4" class="form-control" id="Mensagem"></textarea>
-            <input name="Data Envio" placeholder="Data Envio"  type="hidden" id="Data Envio" value="<?=date("d-m-Y");?>">
-            <input name="Hora Envio" placeholder="Hora Envio"  type="hidden" id="Hora Envio" value="17:47">
+            <input name="email" placeholder="Seu email"  type="text" class="form-control" id="Email" size="40" maxlength="90">
+            <input name="telefone" placeholder="Telefone"  type="text" class="form-control" id="Telefone" size="10" maxlength="15">
+            <input name="celular" placeholder="Celular"  type="text" class="form-control" id="Celular" size="10" maxlength="15">
+            <textarea name="mensagem" placeholder="Mensagem"  cols="40" rows="4" class="form-control" id="Mensagem"></textarea>
+            <input name="data_Envio" placeholder="Data Envio"  type="hidden" id="Data Envio" value="<?=date("d-m-Y");?>">
+            <input name="hora_Envio" placeholder="Hora Envio"  type="hidden" id="Hora Envio" value="17:47">
 			<input name="hostname" placeholder="hostname"  type="hidden" id="hostname" value="b140e8b8.virtua.com.br">
-            <input name="ip" type="hidden" id="ip" value="<?=$_SERVER['HTTP_CLIENT_IP']?>">
+            <input name="ip" type="hidden" id="ip" value="">
             <input name="enviar" type="submit" id="enviar" value="Enviar" class="btn btn-info">
 			<br>
 	 </form>
@@ -115,3 +118,4 @@ function checar_cadastro(form){
 	 </div>
  </section>
 </main>
+@stop
